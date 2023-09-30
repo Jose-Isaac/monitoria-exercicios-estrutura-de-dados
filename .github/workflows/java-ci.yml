@@ -19,10 +19,11 @@ jobs:
           distribution: 'corretto'
 
       - name: Clonar repositório de teste privado
-        uses: actions/checkout@v3
+        uses: actions/checkout@master
         with:
-          repository: Jose-Isaac/monitoria-estrutura-de-dados
-          path: tests  # Nome da pasta onde o repositório privado será clonado
+            repository: Jose-Isaac/monitoria-estrutura-de-dados
+            token: ${{ secrets.TOKEN_TO_ACCESS_PRIVATE_REPO_WITH_TEST }}
+            path: tests
 
       - name: Copiar arquivo de teste
         run: |
