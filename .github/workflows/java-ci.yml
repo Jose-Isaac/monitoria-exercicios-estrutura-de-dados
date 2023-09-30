@@ -3,7 +3,8 @@ name: Java CI
 on:
   push:
     branches:
-      - 'java/atividade01/*'
+      - main
+      - java/atividade/01/*
 
 jobs:
   build:
