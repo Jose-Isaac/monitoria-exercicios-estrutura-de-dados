@@ -19,7 +19,7 @@ jobs:
           distribution: 'corretto'
 
       - name: Clonar repositório de teste privado
-        uses: actions/checkout@master
+        uses: actions/checkout@v4
         with:
             repository: Jose-Isaac/monitoria-estrutura-de-dados
             token: ${{ secrets.TOKEN_TO_ACCESS_PRIVATE_REPO_WITH_TEST }}
@@ -27,6 +27,7 @@ jobs:
 
       - name: Copiar arquivo de teste
         run: |
+          echo ls
           cp ./tests/monitoria-estrutura-de-dados/atividade01/Test_atividade01.java ./atividade01/src/test/java/br/edu/uepb/eda/atividade01
 
       - name: Compilar e rodar testes com Gradle
