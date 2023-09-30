@@ -24,10 +24,11 @@ jobs:
           repository: Jose-Isaac/monitoria-estrutura-de-dados
           path: tests  # Nome da pasta onde o repositório privado será clonado
 
-      - name: Compilar e rodar testes
+      - name: Copiar arquivo de teste
         run: |
-          cp ./tests/monitoria-estrutura-de-dados/atividade01/Test_atividade01.java ./src/atividade01
-          cp ./tests/monitoria-estrutura-de-dados/atividade01/*.jar ./src/atividade01
-          javac Busca_IF.java Busca.java .\BrincandoComBusca.java
-          javac -cp .:junit.jar:hamcrest-core.jar your_test_file.java
-          java -cp .:junit.jar:hamcrest-core.jar org.junit.runner.JUnitCore YourTestClass
+          cp ./tests/monitoria-estrutura-de-dados/atividade01/Test_atividade01.java ./atividade01/src/test/java/br/edu/uepb/eda/atividade01
+
+      - name: Compilar e rodar testes com Gradle
+        run: |
+            cd atividade01
+            ./gradlew test
