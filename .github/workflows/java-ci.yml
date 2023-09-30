@@ -27,8 +27,8 @@ jobs:
 
       - name: Copiar arquivo de teste
         run: |
-          echo ls
-          cp ./tests/monitoria-estrutura-de-dados/atividade01/Test_atividade01.java ./atividade01/src/test/java/br/edu/uepb/eda/atividade01
+          ls
+          cp tests/monitoria-estrutura-de-dados/atividade01/Test_atividade01.java ./atividade01/src/test/java/br/edu/uepb/eda/atividade01
 
       - name: Compilar e rodar testes com Gradle
         run: |
