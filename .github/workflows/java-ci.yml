@@ -3,7 +3,7 @@ name: Java CI
 on:
   push:
     branches:
-      - main
+      #      - main
       - java/atividade/01/*
 
 jobs:
@@ -11,25 +11,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout do código-fonte
-        uses: actions/checkout@v2
-
-      - name: Configurar JDK 11
-        uses: actions/setup-java@v2
+      - uses: actions/checkout@v3
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
         with:
-          java-version: 11
+          java-version: '11'
+          distribution: 'corretto'
 
       - name: Clonar repositório de teste privado
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: Jose-Isaac/monitoria-estrutura-de-dados
-          path: tests  # Nome da pasta onde o repositório privado será clonado
+          token: ${{ secrets.TOKEN_TO_ACCESS_PRIVATE_REPO_WITH_TEST }}
+          path: tests
 
       - name: Copiar arquivo de teste
         run: |
-          cp ./tests/monitoria-estrutura-de-dados/atividade01/Test_atividade01.java ./atividade01/src/test/java/br/edu/uepb/eda/atividade01
+          mkdir atividade01/src/test atividade01/src/test/java atividade01/src/test/java/br atividade01/src/test/java/br/edu atividade01/src/test/java/br/edu/uepb atividade01/src/test/java/br/edu/uepb/eda atividade01/src/test/java/br/edu/uepb/eda/atividade01
+          cp tests/atividade01/Test_atividade01.java atividade01/src/test/java/br/edu/uepb/eda/atividade01
 
       - name: Compilar e rodar testes com Gradle
         run: |
-            cd atividade01
-            ./gradlew test
+          cd atividade01
+          ./gradlew test
