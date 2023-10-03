@@ -3,11 +3,10 @@ name: Java CI
 on:
   push:
     branches:
-      #      - main
-      - java/atividade/01/*
+      - 'java/atividade/01/*'
   pull_request_target:
     branches:
-      - java/atividade/01/*
+      - 'java/atividade/01/*'
 
 jobs:
   build:
