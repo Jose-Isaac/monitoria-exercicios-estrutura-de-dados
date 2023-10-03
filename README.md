@@ -1,4 +1,4 @@
-# Exercícios de EDA ( estrutura de dados ) #
+# Exercícios de EDA T ( estrutura de dados ) #
 
 Oi gente, nesse repositório vocês encontraram o template de todos os exercícios de EDA que vocês iram realizar na disciplina.
 
