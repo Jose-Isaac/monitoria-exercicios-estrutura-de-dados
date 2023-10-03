@@ -3,12 +3,11 @@ name: Java CI
 on:
   push:
     branches:
-      - 'java/atividade/01/*'
+      #      - main
+      - java/atividade/01/*
   pull_request:
-    types:
-      - opened
     branches:
-      - 'java/atividade/01/*'
+        - 'java/atividade/01/*'
   pull_request_target:
     types: [assigned, opened, synchronize, reopened]
     branches:
