@@ -1,20 +1,14 @@
 on:
-  pull_request:
+  pull_request_target:
     types:
       - opened
 
 jobs:
-  pr_opened:
+  run_if:
+    if:  startsWith(github.head_ref, 'java/atividade/01/')
     runs-on: ubuntu-latest
 
     steps:
-      - name: Verificar se o PR de um fork segue o padrão de nome da branch
-        if: |
-          github.event.pull_request.head.repo.fork == true &&
-          startsWith(github.event.pull_request.head.ref, 'java/atividade/01/')
-        run: |
-          echo "Ação acionada em um PR aberto de um fork com um padrão de nome na branch."
-
       - name: Checkout do código-fonte
         uses: actions/checkout@v2
 
