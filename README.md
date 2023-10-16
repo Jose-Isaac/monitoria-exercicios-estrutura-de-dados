@@ -3,7 +3,8 @@
 Oi gente, nesse repositório vocês encontraram o template de todos os exercícios de EDA que vocês iram realizar na disciplina.
 
 ## Como funciona? ##
-Vocês devem fazer um fork desse repositório e iram resolver os exercícios dentro do seu fork. 
+~Vocês devem fazer um fork desse repositório e iram resolver os exercícios dentro do seu fork.~<br/>
+***Por hora, vocês devem ser adicionados ao repo e fazerem o clone do projeto e antão criar a branch conforme informado abaixo!*** Estamos buscando implementar o fluxo de teste pelo fork do projeto para que essa etapa não seja mais necessária.<br><br>
 Quando vocês terminarem de resolver os exercícios, vocês iram fazer um pull request para esse repositório.
 
 Para que os testes funcionem vocês precisam seguir a seguinte estrutura de pastas:
