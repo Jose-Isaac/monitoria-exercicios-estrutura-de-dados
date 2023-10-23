@@ -14,9 +14,32 @@ public class Test0_ListaEncadeada {
 		l = new ListaEncadeada();
 	}
 	
+	
+	@Test
+	public void testVazia() throws Exception{
+		l.insert(5);
+		assertFalse(l.isEmpty());
+	}
+	
 	@Test
 	public void testSize(){
-		assertEquals(0, l.size()); //com a lista vazia
+		for(int i=0;i<5;i++){
+			l.insert(i);
+		}
+		assertEquals(5, l.size()); //com a lista vazia
+	}
+
+	@Test
+	public void testInsert() throws Exception{
+		Integer num = 100;
+		l.insert(num);
+		Integer result = l.search(100);
+		
+		if (result != null) {
+			assertEquals(num, result);
+		} else {
+			fail("Elemento não encontrado na lista");
+		}
 	}
 	
 	@Test
@@ -28,6 +51,30 @@ public class Test0_ListaEncadeada {
 		assertEquals(4, l.size());
 	}
 	
-	//Outros testes ...
+	@Test
+	public void testSearch() throws Exception{
+		l.insert(100);
+		l.insert(200);
+		l.insert(300);
+		
+		Integer result = l.search(200);
+		Integer x = 200;
+		
+		if (result != null) {
+			assertEquals(x, result);
+		} else {
+			fail("Elemento não encontrado na lista");
+		}
+	}
+
+	@Test
+	public void testToArray() throws Exception{
+		int[] array = {5,4,3,2,1};
+		for(int i=1; i <= 5; i++){
+			l.insert(i);
+		}
+		assertArrayEquals(array, l.toArray());
+	}
+	
 	
 }

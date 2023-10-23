@@ -16,8 +16,25 @@ public class Test0_Fila {
 	
 	@Test
 	public void testVazia() throws Exception{
-		f.enqueue(Integer.MAX_VALUE);
+		f.enqueue(100);
 		assertFalse(f.isEmpty());
+	}
+	
+	@Test
+	public void testCheia() throws Exception{
+		for(int i=0;i<10;i++){
+			f.enqueue(i);
+		}
+		assertTrue(f.isFull());
+	}
+
+	@Test
+	public void testHead() throws Exception{
+		for(int i=0;i<10;i++){
+			f.enqueue(i);
+		}
+		Integer x = 0;
+		assertEquals(x, f.head());
 	}
 	
 	@Test (expected = Exception.class)
@@ -25,6 +42,12 @@ public class Test0_Fila {
 		f.dequeue();
 	}
 	
-	//Outros testes ...
+	@Test (expected = Exception.class)
+	public void testOverFlow() throws Exception{
+		for(int i=0;i<=10;i++){
+			f.enqueue(i);
+		}
+	}
+
 
 }
