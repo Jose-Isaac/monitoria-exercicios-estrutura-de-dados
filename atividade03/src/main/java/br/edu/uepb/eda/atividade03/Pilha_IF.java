@@ -1,4 +1,4 @@
-package atividade03;
+package br.edu.uepb.eda.atividade03;
 
 public interface Pilha_IF {
 	public void push(Integer element) throws Exception;
