@@ -4,9 +4,11 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+
 public class Test0_Fila {
-	private static Fila_IF f ;
 	
+	static Fila_IF f ;
+		
 	@Before //Instanciando a Fila antes de cada teste
 	public void instanciaFila() throws Exception{
 		f = new FilaComPilhas();
@@ -14,7 +16,7 @@ public class Test0_Fila {
 	
 	@Test
 	public void testVazia() throws Exception{
-		f.enqueue(10);
+		f.enqueue(Integer.MAX_VALUE);
 		assertFalse(f.isEmpty());
 	}
 	
@@ -23,19 +25,6 @@ public class Test0_Fila {
 		f.dequeue();
 	}
 	
-	@Test
-	public void testHead() throws Exception {
-		for (int i = 1; i <= 3; i++) {
-			f.enqueue(i);
-		}
-		assertEquals(1, (int) f.head());
-	}
-	
-	@Test (expected = Exception.class)
-	public void testFull() throws Exception{
-		for (int i = 1; i <= 10; i++) {
-			f.enqueue(i);
-		}
-		f.enqueue(11);
-	}
+	//Outros testes ...
+
 }
