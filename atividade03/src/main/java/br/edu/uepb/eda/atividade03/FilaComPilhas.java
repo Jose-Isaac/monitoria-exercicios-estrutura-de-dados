@@ -10,12 +10,11 @@ public class FilaComPilhas implements Fila_IF {
         this.p2 = new PilhaComLista();
     }
 
-    @Override
-    public void enqueue(Integer elemento) throws Exception {
-        if (isFull()) {
-            throw new Exception("A fila esta cheia.");
-        }
-        else {
+   @Override
+	public void enqueue(Integer element) throws Exception {
+		if (isFull()) {
+			throw new Exception("Fila está cheia.");
+		} else {
 			while(!p1.isEmpty()) {
 				p2.push(p1.pop());
 			}
