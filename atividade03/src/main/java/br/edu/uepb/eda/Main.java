@@ -6,7 +6,6 @@ import br.edu.uepb.eda.atividade03.Pilha_IF;
 import br.edu.uepb.eda.atividade03.ListaEncadeada;
 import br.edu.uepb.eda.atividade03.FilaComPilhas;
 import br.edu.uepb.eda.atividade03.PilhaComLista;
-
 public class Main {
     public static void main(String[] args) throws Exception {
 
