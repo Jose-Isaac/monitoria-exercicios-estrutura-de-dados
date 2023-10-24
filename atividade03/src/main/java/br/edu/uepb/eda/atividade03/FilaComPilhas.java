@@ -15,33 +15,35 @@ public class FilaComPilhas implements Fila_IF {
         if (isFull()) {
             throw new Exception("A fila esta cheia.");
         }
-        p1.push(elemento);
-    }
+        else {
+			while(!p1.isEmpty()) {
+				p2.push(p1.pop());
+			}
+			p2.push(element);
+			while(!p2.isEmpty()) {
+				p1.push(p2.pop());
+			}
+		}
+	}
 
     @Override
     public Integer dequeue() throws Exception {
         if (isEmpty()) {
             throw new Exception("Nao da para remover pois esta vazia.");
-        }
-        if (p2.isEmpty()) {
-            while (!p1.isEmpty()) {
-                p2.push(p1.pop());
-            }
-        }
-        return p2.pop();
+        }else {
+			int dequeued = p1.pop();
+			return dequeued;
+		}
     }
 
     @Override
     public Integer head() throws Exception {
         if (isEmpty()) {
             throw new Exception("A fila esta vazia.");
-        }
-        if (p2.isEmpty()) {
-            while (!p1.isEmpty()) {
-                p2.push(p1.pop());
-            }
-        }
-        return p2.top();
+        }else {
+			int Head = p1.top();
+			return Head;
+		}
     }
 
     @Override
