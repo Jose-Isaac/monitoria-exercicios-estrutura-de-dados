@@ -1,4 +1,4 @@
-package atividade01;
+package br.edu.uepb.eda.atividade01;
 
 public class Busca implements Busca_IF {
 
