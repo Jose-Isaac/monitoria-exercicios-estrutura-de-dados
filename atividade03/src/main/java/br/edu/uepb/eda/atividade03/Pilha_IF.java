@@ -1,4 +1,4 @@
-package br.edu.uepb.eda.atividade03;
+package atividade03;
 
 /*
  * Interface para implementa��o da classe "PilhaComLista",
