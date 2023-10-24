@@ -1,7 +1,7 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-package atividade03;
+package br.edu.uepb.eda.atividade03;
 
 /**
  *
