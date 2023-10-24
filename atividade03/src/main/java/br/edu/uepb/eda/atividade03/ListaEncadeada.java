@@ -63,15 +63,17 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 
     @Override
     public void remove(Integer element) {
-        if(isEmpty())
+        if (isEmpty()) {
             return;
+        }
 
-        if(value == element){
+        if (value.equals(element)) {
             value = next.value;
             next = next.next;
-        }
-        else{
-            next.remove(element);
+        } else {
+            if (next != null) {
+                next.remove(element);
+            }
         }
     }
 

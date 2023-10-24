@@ -1,7 +1,5 @@
 package br.edu.uepb.eda.atividade03;
 
-import java.util.List;
-
 public class PilhaComLista implements Pilha_IF {
 
     private ListaEncadeada lista;
@@ -32,12 +30,7 @@ public class PilhaComLista implements Pilha_IF {
         if(isEmpty())
             throw new Exception("Pilha Vazia");
 
-        ListaEncadeada aux = lista;
-
-        while(!aux.getNext().isNil()){
-            aux = aux.getNext();
-        }
-        return aux.getValue();
+        return lista.getValue();
     }
 
     @Override
