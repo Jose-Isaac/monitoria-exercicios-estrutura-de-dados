@@ -1,4 +1,4 @@
-package atividade03;
+package br.edu.uepb.eda.atividade03;
 
 public class PilhaComLista implements Pilha_IF {
 	final private int tamanho = 10;
