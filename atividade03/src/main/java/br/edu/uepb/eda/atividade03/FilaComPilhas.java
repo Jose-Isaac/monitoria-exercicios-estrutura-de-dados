@@ -10,18 +10,23 @@ public class FilaComPilhas implements Fila_IF {
         p2 = new PilhaComLista();
     }
     public void enqueue(Integer element) throws Exception {
-        while(!p1.isEmpty()) {
-            p2.push(p1.pop());
+        if (p1.isFull()) {
+            throw new Exception("A fila está cheia.");
+        }
 
+        while (!p1.isEmpty()) {
+            p2.push(p1.pop());
         }
         p2.push(element);
-        while(!p2.isEmpty()) {
+        while (!p2.isEmpty()) {
             p1.push(p2.pop());
         }
-
     }
 
-    public Integer dequeue() throws Exception{
+    public Integer dequeue() throws Exception {
+        if (p1.isEmpty()) {
+            throw new Exception("A fila está vazia.");
+        }
         return p1.pop();
     }
     public Integer head() throws Exception {

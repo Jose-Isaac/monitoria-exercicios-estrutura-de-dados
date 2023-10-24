@@ -4,22 +4,26 @@ public class PilhaComLista implements Pilha_IF {
 	ListaEncadeada  pilha = new ListaEncadeada();
 	int posPilha;
 	@Override
-	public void push(Integer element) throws Exception{
-		if(pilha.size() < 10) {pilha.insert(element);}
+	public void push(Integer element) throws Exception {
+		if (pilha.size() < 10) {
+			pilha.insert(element);
+		}
 	}
+
 	@Override
-	public  Integer pop() throws Exception{
+	public Integer pop() throws Exception {
 		int pilhatopvalor = pilha.data;
-		if(isEmpty()) {
-			return 0;
+		if (isEmpty()) {
+			throw new Exception("A pilha está vazia.");
 		}
 		pilha.remove(pilhatopvalor);
 		return pilhatopvalor;
 	}
+
 	@Override
-	public Integer top() throws Exception{
-		if(isEmpty()) {
-			return 0;
+	public Integer top() throws Exception {
+		if (isEmpty()) {
+			throw new Exception("A pilha está vazia.");
 		}
 		return pilha.data;
 	}
