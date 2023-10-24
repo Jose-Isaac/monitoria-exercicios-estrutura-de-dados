@@ -79,8 +79,8 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 		}
 	}
 	@Override
-	public Integer[] toArray() {
-		Integer[] result = new Integer[size()];
+	public int[] toArray() {
+		int[] result = new int[size()];
 		toArrayAux(result, this, 0);
 		return result;
 	}
