@@ -1,6 +1,6 @@
 package atividade01;
 
-public class Busca implements Busca_IF {
+public class Busca implements busca_IF {
 
 	@Override
 	public int[] geraVetorNumericoOrdenado(int tamanho) {
