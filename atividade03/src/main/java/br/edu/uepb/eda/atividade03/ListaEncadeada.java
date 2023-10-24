@@ -4,6 +4,7 @@
  */
 package br.edu.uepb.eda.atividade03;
 
+
 /**
  *
  * @author jeffgabriiel
@@ -30,7 +31,7 @@ public class ListaEncadeada implements ListaEncadeada_IF {
     }
 
     @Override
-    public Integer size() {
+    public int size() {
         return size;
     }
 

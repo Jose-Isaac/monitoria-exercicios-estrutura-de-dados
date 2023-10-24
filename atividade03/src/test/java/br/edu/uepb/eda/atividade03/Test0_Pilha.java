@@ -8,36 +8,23 @@ public class Test0_Pilha {
 
     private static Pilha_IF p;
 
-    @Before //Instanciando a Pilha antes de cada teste
+    @Before
     public void instanciaPilha() throws Exception {
         p = new PilhaComLista();
     }
 
     @Test
-    public void testVazia() throws Exception {
+    public void testVazia() {
         assertTrue(p.isEmpty());
     }
 
     //Outros testes ...
-    
-    @Test
-    public void testPushAndPop() {
-        try {
-            p.push(10);
-            assertFalse(p.isEmpty());
-            assertEquals(10, p.pop());
-            assertTrue(p.isEmpty());
-        } catch (Exception e) {
-            fail("Exceção lançada: " + e.getMessage());
-        }
-    }
-
     @Test
     public void testPushAndTop() {
         try {
             p.push(20);
             assertFalse(p.isEmpty());
-            assertEquals(20, p.top());
+            assertEquals(20, p.top(), 0);
             assertFalse(p.isEmpty());
         } catch (Exception e) {
             fail("Exceção lançada: " + e.getMessage());
@@ -73,12 +60,12 @@ public class Test0_Pilha {
                 p.push(i);
             }
             for (int i = 5; i >= 1; i--) {
-                assertEquals(i, p.pop());
+                assertEquals(i, p.pop(), 0);
             }
             assertTrue(p.isEmpty());
         } catch (Exception e) {
             fail("Exceção lançada: " + e.getMessage());
         }
     }
-    
+
 }

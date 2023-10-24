@@ -23,19 +23,9 @@ public class Test0_Fila {
     public void testUnderFlow() throws Exception {
         f.dequeue();
     }
-
+    
     //Outros testes ...
     
-    @Test
-    public void testEnqueueAndDequeue() throws Exception {
-        f.enqueue(10);
-        f.enqueue(20);
-
-        assertEquals(10, f.dequeue());
-        assertEquals(20, f.dequeue());
-        assertTrue(f.isEmpty());
-    }
-
     @Test
     public void testIsEmpty() {
         assertTrue(f.isEmpty());

@@ -4,6 +4,7 @@
  */
 package br.edu.uepb.eda.atividade03;
 
+
 /**
  *
  * @author jeffgabriiel
@@ -13,13 +14,8 @@ import java.util.EmptyStackException;
 
 public class FilaComPilhas implements Fila_IF {
 
-    private PilhaComLista inputStack;  // Pilha de entrada
-    private PilhaComLista outputStack; // Pilha de saída
-
-    public FilaComPilhas() {
-        inputStack = new PilhaComLista();
-        outputStack = new PilhaComLista();
-    }
+    private PilhaComLista inputStack = new PilhaComLista();
+    private PilhaComLista outputStack = new PilhaComLista();
 
     @Override
     public void enqueue(Integer element) throws Exception {
