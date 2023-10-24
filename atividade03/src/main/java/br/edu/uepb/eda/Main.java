@@ -1,11 +1,8 @@
 package br.edu.uepb.eda;
 
-import br.edu.uepb.eda.atividade03.Fila_IF;
-import br.edu.uepb.eda.atividade03.ListaEncadeada_IF;
-import br.edu.uepb.eda.atividade03.Pilha_IF;
-
+import br.edu.uepb.eda.atividade03.*;
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
 
         System.out.println("Brincando com ListaEncadeada...");
