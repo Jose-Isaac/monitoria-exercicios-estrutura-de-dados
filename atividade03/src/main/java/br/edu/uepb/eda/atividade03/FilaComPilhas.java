@@ -1,13 +1,13 @@
-package br.edu.uepb.eda.atividade03;
+package atividade03;
 
 public class FilaComPilhas implements Fila_IF {
 
-	protected PilhaComListas p1;
-	protected PilhaComListas p2;
+	protected PilhaComLista p1;
+	protected PilhaComLista p2;
 
 	public FilaComPilhas() {
-		p1 = new PilhaComListas();
-		p2 = new PilhaComListas();
+		p1 = new PilhaComLista();
+		p2 = new PilhaComLista();
 	}
 
 	@Override

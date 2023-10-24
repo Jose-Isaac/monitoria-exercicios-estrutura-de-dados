@@ -1,4 +1,4 @@
-package br.edu.uepb.eda.atividade03;
+package atividade03;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +12,7 @@ public class Test0_Pilha {
 	
 	@Before //Instanciando a Pilha antes de cada teste
 	public void instanciaPilha() throws Exception{
-		p = new PilhaComListas();
+		p = new PilhaComLista();
 	}
 	
 	@Test
