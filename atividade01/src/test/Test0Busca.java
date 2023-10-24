@@ -1,4 +1,4 @@
-package br.edu.uepb.eda.atividade01;
+package br.edu.uepb.eda.test;
 
 import org.junit.Before;
 import org.junit.Test;

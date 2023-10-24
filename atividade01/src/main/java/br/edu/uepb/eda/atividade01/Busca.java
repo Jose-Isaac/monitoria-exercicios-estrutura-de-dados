@@ -29,8 +29,8 @@ public class Busca implements Busca_IF {
 	
 	@Override
 	public boolean buscaLinear_iterativa_duasPontas(int[] numeros, int k){
-		int M = numeros.length-1 / 2;
-        for(int i = 0, j = numeros.length-1;i <= M && j > M; i++, j--) {
+		int M = (numeros.length-1)/2;
+        for(int i = 0, j = numeros.length-1; i <= M && j > M; i++, j--) {
             if(numeros[i] == k || numeros[j] == k) return true;            
         }
         return false;
