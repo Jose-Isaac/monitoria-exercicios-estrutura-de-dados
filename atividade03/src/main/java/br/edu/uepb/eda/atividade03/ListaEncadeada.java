@@ -41,7 +41,7 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 
 	}
 	@Override
-	public  int search(Integer element) {
+	public Integer search(Integer element) {
 		if (isEmpty()) {
 			return -1;
 		} else {
