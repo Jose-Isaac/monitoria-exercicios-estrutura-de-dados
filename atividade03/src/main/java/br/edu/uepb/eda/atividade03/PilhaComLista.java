@@ -8,33 +8,33 @@ public class PilhaComLista implements Pilha_IF {
 		if(pilha.size() < 10) {pilha.insert(element);}
 	}
 	@Override
-	public  int pop() throws Exception{
-		   int pilhatopvalor = pilha.data;
-	        if(isEmpty()) {
-	            return 0;
-	        }
-	        pilha.remove(pilhatopvalor);
-	        return pilhatopvalor;
-    }
+	public  Integer pop() throws Exception{
+		int pilhatopvalor = pilha.data;
+		if(isEmpty()) {
+			return 0;
+		}
+		pilha.remove(pilhatopvalor);
+		return pilhatopvalor;
+	}
 	@Override
-	public int top() throws Exception{
-	      if(isEmpty()) {
-	            return 0;
-	        }
-	        return pilha.data;
+	public Integer top() throws Exception{
+		if(isEmpty()) {
+			return 0;
+		}
+		return pilha.data;
 	}
 	@Override
 	public boolean isEmpty() {
-		   if(pilha.isEmpty()) {
-	            return true;
-	        }
-	        return false;
+		if(pilha.isEmpty()) {
+			return true;
+		}
+		return false;
 	}
 	@Override
 	public boolean isFull() {
-	      if(pilha.size() <= 10) {
-	            return true;
-	        }
-	        return false;
+		if(pilha.size() <= 10) {
+			return true;
+		}
+		return false;
 	}
 }

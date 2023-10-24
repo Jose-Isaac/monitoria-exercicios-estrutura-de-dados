@@ -1,16 +1,16 @@
 package br.edu.uepb.eda.atividade03;
 public class ListaEncadeada implements ListaEncadeada_IF {
-	
+
 	protected Integer data;
 	protected ListaEncadeada next;
 	protected Integer head;
-	
+
 	Integer metodohead(){
 		while (!isEmpty()) {
-		 head = next.data;}
+			head = next.data;}
 		return data;
-		}
-	
+	}
+
 	public Integer getData() {
 		return data;
 	}
@@ -25,11 +25,11 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 	}
 	@Override
 	public boolean isEmpty() {
-	    if (data == null && next == null) {
-	        return true;
-	    } else {
-	        return false;
-	    }
+		if (data == null && next == null) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	@Override
 	public int size() {
@@ -38,60 +38,60 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 		}else {
 			return 1 + next.size();
 		}
-		
+
 	}
 	@Override
 	public  int search(Integer element) {
-        if (isEmpty()) {
-            return -1; 
-        } else {
-            if (data.equals(element)) {
-                return data;
-            } else {
-                return next.search(element);
+		if (isEmpty()) {
+			return -1;
+		} else {
+			if (data.equals(element)) {
+				return data;
+			} else {
+				return next.search(element);
 
 
-        }}
+			}}
 
-    }
+	}
 	@Override
-	   public void insert(Integer element) {
-        if (isEmpty()) {
-            data = element;
-            next = new ListaEncadeada();
-        } else {
-            ListaEncadeada newNode = new ListaEncadeada();
-            newNode.setData(data);
-            newNode.setNext(next);
-            data = element;
-            next = newNode;
-        }
-    }
+	public void insert(Integer element) {
+		if (isEmpty()) {
+			data = element;
+			next = new ListaEncadeada();
+		} else {
+			ListaEncadeada newNode = new ListaEncadeada();
+			newNode.setData(data);
+			newNode.setNext(next);
+			data = element;
+			next = newNode;
+		}
+	}
 	@Override
 	public void remove(Integer element) {
-        if(isEmpty()) {
+		if(isEmpty()) {
 
-        }else {
-            if (data.equals(element)) {
-                data = next.data;
-                next = next.next;
-            }else {
-                next.remove(element);
-            }
-        }
+		}else {
+			if (data.equals(element)) {
+				data = next.data;
+				next = next.next;
+			}else {
+				next.remove(element);
+			}
+		}
 	}
 	@Override
 	public Integer[] toArray() {
-	    Integer[] result = new Integer[size()];
-	    toArrayAux(result, this, 0);
-	    return result;
+		Integer[] result = new Integer[size()];
+		toArrayAux(result, this, 0);
+		return result;
 	}
 
 	private int toArrayAux(Integer[] result, ListaEncadeada listaEncadeada, int index) {
-	    if (!listaEncadeada.isEmpty()) {
-	        result[index] = listaEncadeada.data;
-	        return toArrayAux(result, listaEncadeada.next, index + 1);
-	    }
-	    return index;
+		if (!listaEncadeada.isEmpty()) {
+			result[index] = listaEncadeada.data;
+			return toArrayAux(result, listaEncadeada.next, index + 1);
+		}
+		return index;
 	}
 }
