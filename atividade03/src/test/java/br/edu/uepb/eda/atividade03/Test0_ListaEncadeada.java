@@ -57,3 +57,4 @@ public class Test0_ListaEncadeada {
 		assertTrue(l.toArray()[4] == 1);
 	}
 }
+

@@ -36,3 +36,4 @@ public class Test0_Pilha {
 		assertTrue(p.isEmpty());
 	}
 }
+
