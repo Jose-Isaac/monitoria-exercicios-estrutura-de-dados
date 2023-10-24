@@ -10,7 +10,7 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 	}
 
 	@Override
-	public Integer size() {
+	public int size() {
 		if (isEmpty()) return 0;
 		return 1 + proximo.size();
 	}
@@ -54,13 +54,13 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 	}
 
 	@Override
-	public Integer[] toArray() {
-		Integer[] array = new Integer[size()];
+	public int[] toArray() {
+		int[] array = new Integer[size()];
 		toArrayRecursive(this, array, 0);
 		return array;
 	}
 
-	protected void toArrayRecursive(ListaEncadeada current, Integer[] array, int i) {
+	protected void toArrayRecursive(ListaEncadeada current, int[] array, int i) {
 		if (!current.isEmpty()) {
 			array[i] = current.data;
 			toArrayRecursive(current.proximo, array, i + 1);
