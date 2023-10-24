@@ -13,6 +13,12 @@ public class Test0_Fila {
 	}
 	
 	@Test
+	public void testEnqueueAndDequeue() throws Exception {
+		f.enqueue(1);
+		assertEquals(1, (int) f.dequeue());
+	}
+	
+	@Test
 	public void testVazia() throws Exception{
 		assertTrue(f.isEmpty());
 	}

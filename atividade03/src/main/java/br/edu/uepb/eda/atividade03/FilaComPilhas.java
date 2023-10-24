@@ -12,7 +12,7 @@ public class FilaComPilhas implements Fila_IF {
 
 	@Override
 	public void enqueue(Integer element) throws Exception {
-		if (p1.isFull()) {
+		if (isFull()) {
 			throw new Exception("Fila está cheia.");
 		} else {
 			while(!p1.isEmpty()) {
@@ -27,7 +27,7 @@ public class FilaComPilhas implements Fila_IF {
 
 	@Override
 	public Integer dequeue() throws Exception {
-		if (p1.isEmpty()) {
+		if (isEmpty()) {
 			throw new Exception("Fila vazia.");
 		} else {
 			int dequeued = p1.pop();
@@ -37,7 +37,7 @@ public class FilaComPilhas implements Fila_IF {
 
 	@Override
 	public Integer head() throws Exception {
-		if (p1.isEmpty()) {
+		if (isEmpty()) {
 			throw new Exception("Fila vazia.");
 		} else {
 			int Head = p1.top();
@@ -57,7 +57,7 @@ public class FilaComPilhas implements Fila_IF {
 	@Override
 	public boolean isFull() {
 		if (p1.isFull()) {
-			return false;
+			return true;
 		} else {
 			return false;
 		}

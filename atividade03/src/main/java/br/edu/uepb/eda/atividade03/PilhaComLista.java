@@ -48,7 +48,7 @@ public class PilhaComLista implements Pilha_IF {
 
 	@Override
 	public boolean isFull() {
-		if (l.size() == 10) {
+		if (l.size() >= 10) {
 			return true;
 		} else {
 			return false;
