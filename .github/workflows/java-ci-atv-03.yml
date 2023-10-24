@@ -42,4 +42,5 @@ jobs:
       - name: Compilar e rodar testes com Gradle
         run: |
           cd atividade03
+          chmod +x gradlew
           ./gradlew test
