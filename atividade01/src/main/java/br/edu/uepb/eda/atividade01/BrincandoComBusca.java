@@ -5,7 +5,7 @@ Docente: Janderson Jason Barbosa Aguiar
 Equipe: Eros Franklin Soares Félix, José Guilherme Morato Bizerra de Lima e Kaio Vinícius Cordeiro Batista 
 */
 
-package atividade01;
+package br.edu.uepb.eda.atividade01;
 
 public class BrincandoComBusca {
 
