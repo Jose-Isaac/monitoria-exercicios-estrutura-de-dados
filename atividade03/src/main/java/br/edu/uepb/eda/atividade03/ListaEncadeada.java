@@ -80,13 +80,13 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 	}
 
 	@Override
-	public Integer[] toArray() {
-		 Integer[] resultado = new Integer[size()];
+	public int[] toArray() {
+		 int[] resultado = new int[size()];
 	     toArrayRecursivo(resultado, this, 0);
 	     return resultado;
 	}
 
-	private int toArrayRecursivo(Integer[] result, ListaEncadeada listaEncadeada, int index) {
+	private int toArrayRecursivo(int[] result, ListaEncadeada listaEncadeada, int index) {
 		
 	     if (!listaEncadeada.isEmpty()) {
 	          result[index] = listaEncadeada.data;
