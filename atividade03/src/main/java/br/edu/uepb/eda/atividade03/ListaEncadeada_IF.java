@@ -1,8 +1,8 @@
 package br.edu.uepb.eda.atividade03;
 
 /*
- * Interface para implementa��o da classe "ListaEncadeada"
- * que deve ser implementada usando m�todos recursivos.
+ * Interface para implementação da classe "ListaEncadeada"
+ * que deve ser implementada usando métodos recursivos.
  */
 public interface ListaEncadeada_IF {
 	public boolean isEmpty();

@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class Test0_Fila {
 	
-	static Fila_IF f ;
+	static Fila_IF f;
 		
 	@Before //Instanciando a Fila antes de cada teste
 	public void instanciaFila() throws Exception{
@@ -25,6 +25,28 @@ public class Test0_Fila {
 		f.dequeue();
 	}
 	
-	//Outros testes ...
+	@Test
+	public void testEnqueue() throws Exception {
+		f.enqueue(1);
+        f.enqueue(2);
+	}
+	
+	@Test
+    public void testDequeue() throws Exception {
+		f.enqueue(1);
+        f.enqueue(2);
 
+        assertEquals(Integer.valueOf(1), f.dequeue());
+        assertEquals(Integer.valueOf(2), f.dequeue());
+    }
+
+    @Test
+    public void testHead() throws Exception {
+        f.enqueue(1);
+        f.enqueue(2);
+
+        assertEquals(Integer.valueOf(1), f.head());
+        f.dequeue();
+        assertEquals(Integer.valueOf(2), f.head());
+    }
 }
