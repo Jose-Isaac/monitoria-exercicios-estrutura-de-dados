@@ -1,8 +1,8 @@
 package atividade03;
 
 public class FilaComPilhas implements Fila_IF {
-	Pilha_IF entrada;
-	Pilha_IF saida;
+	PilhaComLista entrada;
+	PilhaComLista saida;
 	
 	public FilaComPilhas() {
 		entrada = new PilhaComLista();
