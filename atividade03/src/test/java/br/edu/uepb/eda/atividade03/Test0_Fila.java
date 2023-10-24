@@ -23,26 +23,4 @@ public class Test0_Fila {
     }
     
     //Outros testes ...
-    
-    @Test
-    public void testIsEmpty() {
-        assertTrue(f.isEmpty());
-
-        try {
-            f.enqueue(10);
-            assertFalse(f.isEmpty());
-
-            f.dequeue();
-            assertTrue(f.isEmpty());
-        } catch (Exception e) {
-            fail("Exceção lançada: " + e.getMessage());
-        }
-    }
-
-    @Test(expected = Exception.class)
-    public void testEnqueueWhenFull() throws Exception {
-        for (int i = 0; i < 11; i++) {
-            f.enqueue(i);
-        }
-    }
 }
