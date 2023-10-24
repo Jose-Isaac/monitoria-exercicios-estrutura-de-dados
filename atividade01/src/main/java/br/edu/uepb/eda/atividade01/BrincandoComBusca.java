@@ -10,7 +10,7 @@ package atividade01;
 public class BrincandoComBusca {
 
 	public static void main(String[] args) {
-		Busca_IF b = new Busca();
+		busca_IF b = new Busca();
 		int i, repeticoes = 50, n = 10;
 		final int numeroParaBuscar = -1;
 		final int[] vetor = b.geraVetorNumericoOrdenado(n);
