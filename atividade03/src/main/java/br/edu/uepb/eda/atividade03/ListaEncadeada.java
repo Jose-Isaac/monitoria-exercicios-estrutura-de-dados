@@ -41,17 +41,16 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 
 	}
 	@Override
-	public Integer search(Integer element) {
-		if (isEmpty()) throw new Exception("Elemento não encontrado na lista.");
-		 else {
+	public Integer search(Integer element) throws Exception {
+		if (isEmpty()) {
+			throw new Exception("Elemento não encontrado na lista.");
+		} else {
 			if (data.equals(element)) {
 				return data;
 			} else {
 				return next.search(element);
-
-
-			}}
-
+			}
+		}
 	}
 	@Override
 	public void insert(Integer element) {
