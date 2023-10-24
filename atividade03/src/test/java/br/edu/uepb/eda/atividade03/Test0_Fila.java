@@ -1,10 +1,9 @@
 package br.edu.uepb.eda.atividade03;
 
 
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class Test0_Fila {
 	static Fila_IF fila;
@@ -39,7 +38,7 @@ public class Test0_Fila {
 	@Test
 	public void testEnqueue() throws Exception {
 		fila.enqueue(Integer.MAX_VALUE);
-		assertEquals(Integer.MAX_VALUE, fila.head());
+		assertEquals(Integer.MAX_VALUE, fila.head().intValue());
 	}
 
 	@Test
@@ -47,8 +46,8 @@ public class Test0_Fila {
 		try {
 			for (int i = 0; i < 5; i++)
 				fila.enqueue(i);
-			assertEquals(0, fila.dequeue());
-			assertEquals(1, fila.head());
+			assertEquals(0, fila.dequeue().intValue());
+			assertEquals(1, fila.head().intValue());
 		} catch (Exception e) {
 			e.getStackTrace();
 		}
@@ -58,7 +57,7 @@ public class Test0_Fila {
 	@Test
 	public void testHead() throws Exception {
 		for (int i = 0; i < 5; i++) fila.enqueue(i);
-		assertEquals(0, fila.head());
+		assertEquals(0, fila.head().intValue());
 	}
 
 	@Test
