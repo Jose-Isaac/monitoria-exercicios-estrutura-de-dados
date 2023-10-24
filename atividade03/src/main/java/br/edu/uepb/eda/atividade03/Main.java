@@ -1,8 +1,7 @@
-package br.edu.uepb.eda;
-
-import br.edu.uepb.eda.atividade03.*;
+package br.edu.uepb.eda.atividade03;
 
 public class Main {
+	
     public static void main(String[] args) throws Exception {
 
         // MOSTRANDO TUDO TRUE NA TELA, CÓDIGO ESTÁ FUNCIONANDO
@@ -109,4 +108,5 @@ public class Main {
         // OBS.: Espera-se que nenhum print mostre 'false' na tela!
 
     }
+    
 }
