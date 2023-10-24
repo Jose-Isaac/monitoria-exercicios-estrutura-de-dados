@@ -1,4 +1,4 @@
-package br.edu.uepb.eda.atividade03;
+package atividade03;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -25,6 +25,20 @@ public class Test0_Fila {
 		f.dequeue();
 	}
 	
+	@Test
+	public void testEnqueue() throws Exception {
+		f.enqueue(10);
+		assertFalse(f.isEmpty());
+	}
+	
+	@Test
+	public void testDequeue() throws Exception {
+		assertTrue(f.isEmpty());
+		f.enqueue(10);
+		assertFalse(f.isEmpty());
+		assertEquals(Integer.valueOf(10), f.dequeue());
+		assertTrue(f.isEmpty());
+	}
 	//Outros testes ...
 
 }

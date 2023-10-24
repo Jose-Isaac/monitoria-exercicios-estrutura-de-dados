@@ -1,4 +1,4 @@
-package br.edu.uepb.eda.atividade03;
+package atividade03;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -17,6 +17,17 @@ public class Test0_ListaEncadeada {
 	@Test
 	public void testSize(){
 		assertEquals(0, l.size()); //com a lista vazia
+		l.insert(10);
+		assertEquals(1, l.size());
+		l.insert(15);
+		assertEquals(2, l.size());
+	}
+	
+	@Test
+	public void testEmpty() {
+		assertTrue(l.isEmpty());
+		l.insert(10);
+		assertFalse(l.isEmpty());
 	}
 	
 	@Test
@@ -26,8 +37,7 @@ public class Test0_ListaEncadeada {
 		}
 		l.remove(3);
 		assertEquals(4, l.size());
-	}
-	
-	//Outros testes ...
-	
+		l.remove(1);
+		assertEquals(3, l.size());
+	}		
 }
