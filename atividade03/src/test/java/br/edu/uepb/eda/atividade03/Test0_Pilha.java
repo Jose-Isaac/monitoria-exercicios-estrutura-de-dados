@@ -1,9 +1,6 @@
 package br.edu.uepb.eda.atividade03;
 
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.assertTrue;
-
+import static org.junit.Assert.*;
 public class Test0_Pilha {
 
     private static Pilha_IF p;
