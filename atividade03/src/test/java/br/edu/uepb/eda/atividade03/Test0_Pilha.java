@@ -1,4 +1,5 @@
-package atividade03;
+package br.edu.uepb.eda.atividade03;
+
 
 import static org.junit.Assert.*;
 
