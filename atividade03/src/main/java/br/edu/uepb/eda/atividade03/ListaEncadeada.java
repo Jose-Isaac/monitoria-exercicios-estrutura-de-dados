@@ -85,7 +85,7 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 		return result;
 	}
 
-	private int toArrayAux(Integer[] result, ListaEncadeada listaEncadeada, int index) {
+	private int toArrayAux(int[] result, ListaEncadeada listaEncadeada, int index) {
 		if (!listaEncadeada.isEmpty()) {
 			result[index] = listaEncadeada.data;
 			return toArrayAux(result, listaEncadeada.next, index + 1);
