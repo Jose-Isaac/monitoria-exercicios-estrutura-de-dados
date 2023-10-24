@@ -55,7 +55,7 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 
 	@Override
 	public int[] toArray() {
-		int[] array = new Integer[size()];
+		int[] array = new int[size()];
 		toArrayRecursive(this, array, 0);
 		return array;
 	}
