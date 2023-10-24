@@ -28,6 +28,52 @@ public class Test0_ListaEncadeada {
 		assertEquals(4, l.size());
 	}
 	
-	//Outros testes ...
+	@Test (expected = Exception.class)
+	public void testBuscarInexistente() throws Exception{
+		l.insert(1);
+        l.insert(2);
+        l.insert(3);
+
+        l.search(4);
+	}
+
+	@Test
+	public void testBuscarExistente() throws Exception{
+		l.insert(1);
+        l.insert(2);
+        l.insert(3);
+
+        l.search(2);
+	}
+
+	@Test
+	public void testEmpty() {
+		assertTrue(l.isEmpty());
+	}
+
+	@Test
+	public void testNoEmpty() {
+		l.insert(20);
+		assertFalse(l.isEmpty());
+	}
+
+	@Test
+	public void testToArray(){
+		for (int i=0; i<5; i++){
+			l.insert(i+1);
+		}
+
+		assertEquals(3, l.toArray()[2]);
+		
+	}
+
+	@Test
+	public void testInserirInicio(){
+		l.insert(1);
+		l.insert(2);
+		l.insert(3);
+
+		assertEquals(3, l.toArray()[0]);
+	}
 	
 }

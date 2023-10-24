@@ -25,6 +25,45 @@ public class Test0_Fila {
 		f.dequeue();
 	}
 	
-	//Outros testes ...
+	@Test
+    public void testEmptyQueue() throws Exception {
+        assertTrue(f.isEmpty());
+
+        f.enqueue(100);
+        assertFalse(f.isEmpty());
+
+        f.dequeue();
+        assertTrue(f.isEmpty());
+    }
+
+    @Test
+    public void testIsFull() throws Exception{
+        for (int i=0; i<11; i++){ // até 10
+            f.enqueue(i);
+        }
+        
+        assertTrue(f.isFull());
+    }
+
+    @Test (expected = Exception.class)
+	public void testEstouroFila() throws Exception{
+		for (int i=0; i<12; i++){
+            f.enqueue(i);
+        }
+	} 
+
+    @Test (expected = Exception.class)
+    public void testEmptyHead() throws Exception{
+        f.head();
+    }
+
+    @Test
+    public void testExpectedHead() throws Exception{
+        f.enqueue(2);
+        f.enqueue(4);
+        f.enqueue(8);
+
+        assertEquals(2, f.head(), 0);
+    }
 
 }
