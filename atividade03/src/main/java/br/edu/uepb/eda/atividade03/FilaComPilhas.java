@@ -1,21 +1,21 @@
-package atividade03;
+package br.edu.uepb.eda.atividade03;
 
 public class FilaComPilhas implements Fila_IF {
 
 	protected PilhaComLista ponta1 = new PilhaComLista();
 	protected PilhaComLista ponta2 = new PilhaComLista();
-			
+
 	public void enqueue(Integer element) throws Exception {
 		if(this.isFull()) {
 			throw new Exception("LISTA CHEIA");
 		}
-		
+
 		while(!ponta2.isEmpty()) {
 			ponta1.push(ponta2.pop());
 		}
-		
+
 		ponta2.push(element);
-		
+
 		while(!ponta1.isEmpty()) {
 			ponta2.push(ponta1.pop());
 		}

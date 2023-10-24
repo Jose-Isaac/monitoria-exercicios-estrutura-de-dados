@@ -1,7 +1,7 @@
-package atividade03;
+package br.edu.uepb.eda.atividade03;
 
 public class PilhaComLista implements Pilha_IF {
-	
+
 	protected ListaEncadeada pilha = new ListaEncadeada();
 
 	public void push(Integer element) throws Exception {

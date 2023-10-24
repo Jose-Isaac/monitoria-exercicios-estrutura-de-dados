@@ -1,11 +1,11 @@
-package atividade03;
+package br.edu.uepb.eda.atividade03;
 
 public class ListaEncadeada implements ListaEncadeada_IF {
-	
+
 	protected Integer valor;
 	protected ListaEncadeada prox;
 	protected int tamanho;
-	
+
 	ListaEncadeada(){
 		this.valor = null;
 		this.prox = null;
@@ -52,7 +52,7 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 			this.tamanho++;
 		}
 	}
-	
+
 	public void remove(Integer element) {
 		if(this.isEmpty()) {
 			System.out.println("VAZIA");
@@ -68,7 +68,7 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 			return;
 		}
 	}
-	
+
 	public int[] toArray_aux(int[] array, ListaEncadeada lista, int contagem) {
 		if(!lista.isEmpty()) {
 			array[contagem] = lista.valor;

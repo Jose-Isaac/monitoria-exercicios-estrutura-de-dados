@@ -1,4 +1,4 @@
-package atividade03;
+package br.edu.uepb.eda.atividade03;
 
 /*
  * Interface para implementação da classe "FilaComPilhas", a qual deve
