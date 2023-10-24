@@ -1,14 +1,14 @@
 package br.edu.uepb.eda.atividade03;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class Test_ListaEncadeada {
+public class Test0_ListaEncadeada {
 	static ListaEncadeada_IF lista;
 
-	@BeforeEach //Instanciando a Lista antes de cada teste
+	@Before //Instanciando a Lista antes de cada teste
 	public void instanciaLista() {
 		lista = new ListaEncadeada();
 	}

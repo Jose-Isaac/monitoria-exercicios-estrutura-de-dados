@@ -1,14 +1,14 @@
 package br.edu.uepb.eda.atividade03;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class Test_Pilha {
+public class Test0_Pilha {
 	private static Pilha_IF pilha;
 
-	@BeforeEach //Instanciando a Pilha antes de cada teste
+	@Before //Instanciando a Pilha antes de cada teste
 	public void instanciaPilha() {
 		pilha = new PilhaComLista();
 	}

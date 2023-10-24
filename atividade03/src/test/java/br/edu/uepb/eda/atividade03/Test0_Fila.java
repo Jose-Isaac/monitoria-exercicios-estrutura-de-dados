@@ -1,14 +1,15 @@
 package br.edu.uepb.eda.atividade03;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+
+import org.junit.Before;
+import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class Test_Fila {
+public class Test0_Fila {
 	static Fila_IF fila;
 
-	@BeforeEach //Instanciando a Fila antes de cada teste
+	@Before //Instanciando a Fila antes de cada teste
 	public void instanciaFila() {
 		fila = new FilaComPilhas();
 	}
