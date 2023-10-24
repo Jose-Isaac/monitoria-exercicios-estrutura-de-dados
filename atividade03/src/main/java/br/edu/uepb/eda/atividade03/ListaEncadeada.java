@@ -1,4 +1,4 @@
-package atividade03;
+package br.edu.uepb.eda.atividade03;
 
 public class ListaEncadeada implements ListaEncadeada_IF {
 	protected Integer data;
