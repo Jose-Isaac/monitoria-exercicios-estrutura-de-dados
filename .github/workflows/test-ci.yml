@@ -16,6 +16,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
+          distribution: corretto
 
       - name: Clonar repositório de teste privado
         uses: actions/checkout@v2
