@@ -48,7 +48,7 @@ public class FilaComPilhas implements Fila_IF{
 
     @Override
     public boolean isFull() {
-        return this.inputStack.isFull();
+        return this.inputStack.isFull() && this.outputStack.isFull();
     }
 
     
