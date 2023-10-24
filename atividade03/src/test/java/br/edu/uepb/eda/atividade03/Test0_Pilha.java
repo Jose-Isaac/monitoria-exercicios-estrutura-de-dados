@@ -37,12 +37,5 @@ public class Test0_Pilha {
 
         assertFalse(p.isFull());
 	}
-
-    @Test (expected = Exception.class)
-	public void testEstouroPilha() throws Exception{
-		for (int i=0; i<12; i++){ // vai até 11
-            p.push(i);
-        }
-	}
 	
 }

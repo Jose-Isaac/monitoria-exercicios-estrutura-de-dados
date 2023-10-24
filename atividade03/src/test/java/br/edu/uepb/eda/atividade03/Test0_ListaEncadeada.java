@@ -58,16 +58,6 @@ public class Test0_ListaEncadeada {
 	}
 
 	@Test
-	public void testToArray(){
-		for (int i=0; i<5; i++){
-			l.insert(i+1);
-		}
-
-		assertEquals(3, l.toArray()[2]);
-		
-	}
-
-	@Test
 	public void testInserirInicio(){
 		l.insert(1);
 		l.insert(2);

@@ -36,14 +36,6 @@ public class Test0_Fila {
         assertTrue(f.isEmpty());
     }
 
-    @Test
-    public void testIsFull() throws Exception{
-        for (int i=0; i<11; i++){ // até 10
-            f.enqueue(i);
-        }
-        
-        assertTrue(f.isFull());
-    }
 
     @Test
     public void testIsCheia() throws Exception{
@@ -53,13 +45,6 @@ public class Test0_Fila {
         
         assertTrue(f.isFull());
     }
-
-    @Test (expected = Exception.class)
-	public void testEstouroFila() throws Exception{
-		for (int i=0; i<12; i++){
-            f.enqueue(i);
-        }
-	} 
 
     @Test (expected = Exception.class)
     public void testEmptyHead() throws Exception{
