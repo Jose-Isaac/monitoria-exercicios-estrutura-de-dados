@@ -24,11 +24,11 @@ public class ListaEncadeada implements ListaEncadeada_IF {
         return 1 + sizeRecursive(current.proximo);
     }
 
-    public int search(Integer element) throws Exception {
+    public Integer search(Integer element) throws Exception {
         return searchRecursive(this, element);
     }
 
-    private int searchRecursive(ListaEncadeada current, Integer element) throws Exception {
+    private Integer searchRecursive(ListaEncadeada current, Integer element) throws Exception {
         if (current.data == null) {
             throw new Exception("Elemento NÃO ENCONTRADO!");
         }

@@ -24,7 +24,7 @@ public class FilaComPilhas implements Fila_IF {
         }
     }
 
-    public int dequeue() throws Exception {
+    public Integer dequeue() throws Exception {
         if (isEmpty()) {
             throw new Exception("Fila VAZIA!");
         }
