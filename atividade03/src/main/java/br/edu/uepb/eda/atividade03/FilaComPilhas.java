@@ -2,51 +2,65 @@ package br.edu.uepb.eda.atividade03;
 
 public class FilaComPilhas implements Fila_IF {
 
-    PilhaComLista p1,p2 = new PilhaComLista();
-
+    protected PilhaComLista p1;
+    protected PilhaComLista p2;
 
     public FilaComPilhas() {
         p1 = new PilhaComLista();
         p2 = new PilhaComLista();
     }
+
+    @Override
     public void enqueue(Integer element) throws Exception {
-        if (p1.isFull()) {
-            throw new Exception("A fila está cheia.");
-        }
-
-        while (!p1.isEmpty()) {
-            p2.push(p1.pop());
-        }
-        p2.push(element);
-        while (!p2.isEmpty()) {
-            p1.push(p2.pop());
+        if (isFull()) {
+            throw new Exception("Fila está cheia.");
+        } else {
+            while(!p1.isEmpty()) {
+                p2.push(p1.pop());
+            }
+            p2.push(element);
+            while(!p2.isEmpty()) {
+                p1.push(p2.pop());
+            }
         }
     }
 
+    @Override
     public Integer dequeue() throws Exception {
-        if (p1.isEmpty()) {
-            throw new Exception("A fila está vazia.");
+        if (isEmpty()) {
+            throw new Exception("Fila vazia.");
+        } else {
+            int dequeued = p1.pop();
+            return dequeued;
         }
-        return p1.pop();
     }
+
+    @Override
     public Integer head() throws Exception {
-        if (p1.isEmpty()) {
+        if (isEmpty()) {
             throw new Exception("Fila vazia.");
         } else {
             int Head = p1.top();
             return Head;
         }
-
     }
 
-
+    @Override
     public boolean isEmpty() {
-        return p1.isEmpty();
+        if (p1.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-
+    @Override
     public boolean isFull() {
-        return p1.isFull();
+        if (p1.isFull()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

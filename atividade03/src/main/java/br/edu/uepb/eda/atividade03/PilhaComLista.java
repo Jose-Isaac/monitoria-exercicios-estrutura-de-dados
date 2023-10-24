@@ -7,9 +7,10 @@ public class PilhaComLista implements Pilha_IF {
 	public void push(Integer element) throws Exception {
 		if (pilha.size() < 10) {
 			pilha.insert(element);
+		} else {
+			throw new Exception("A pilha está cheia.");
 		}
 	}
-
 	@Override
 	public Integer pop() throws Exception {
 		int pilhatopvalor = pilha.data;
