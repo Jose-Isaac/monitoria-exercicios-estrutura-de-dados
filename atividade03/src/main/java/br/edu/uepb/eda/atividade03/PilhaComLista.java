@@ -1,10 +1,10 @@
 package atividade03;
 
-public class PilhaComListas implements Pilha_IF {
+public class PilhaComLista implements Pilha_IF {
 
 	protected ListaEncadeada l;
 
-	public PilhaComListas() {
+	public PilhaComLista() {
 		this.l = new ListaEncadeada();
 	}
 
