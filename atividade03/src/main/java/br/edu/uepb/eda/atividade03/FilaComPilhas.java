@@ -1,4 +1,4 @@
-package br.edu.uepb.eda.atividade03
+package br.edu.uepb.eda.atividade03;
 
 public class FilaComPilhas implements Fila_IF {
 
