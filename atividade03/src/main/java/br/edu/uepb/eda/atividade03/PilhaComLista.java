@@ -26,7 +26,7 @@ public class PilhaComLista implements Pilha_IF {
 
     @Override
     public Integer top() throws Exception {
-        if (this.isEmpty()) {
+        if (this.stack.isEmpty()) {
             throw new Exception("A pilha está vazia");
         }
         return this.stack.data;
@@ -39,7 +39,7 @@ public class PilhaComLista implements Pilha_IF {
 
     @Override
     public boolean isFull() {
-        return !(this.stack.size() < maxTamanho);
+        return this.maxTamanho == this.stack.size();
     }
 
     

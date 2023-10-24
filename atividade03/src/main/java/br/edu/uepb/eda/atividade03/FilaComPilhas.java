@@ -11,24 +11,24 @@ public class FilaComPilhas implements Fila_IF{
             throw new Exception("Fila cheira!");
         }
       
-        while (!this.outputStack.isEmpty()) {
-            this.inputStack.push(this.outputStack.pop());
+        while (!this.inputStack.isEmpty()) {
+            this.outputStack.push(this.inputStack.pop());
         }
         
-        this.inputStack.push(element);
+        outputStack.push(element);
         
-        while (!inputStack.isEmpty()) {
-            this.outputStack.push(this.inputStack.pop());
+        while (!this.outputStack.isEmpty()) {
+            this.inputStack.push(this.outputStack.pop());
         }
     }
 
     @Override
     public Integer dequeue() throws Exception {
-        if (this.isEmpty()) {
+        if (this.inputStack.isEmpty()) {
             throw new Exception("A fila está vazia!");
         }
 
-        return this.outputStack.pop();
+        return this.inputStack.pop();
 
     }
 
@@ -38,17 +38,17 @@ public class FilaComPilhas implements Fila_IF{
             throw new Exception("A fila está vazia!");
         }
 
-        return this.outputStack.top();
+        return this.inputStack.top();
     }
 
     @Override
     public boolean isEmpty() {
-        return this.inputStack.isEmpty() && this.outputStack.isEmpty();
+        return this.inputStack.isEmpty();
     }
 
     @Override
     public boolean isFull() {
-        return this.inputStack.isFull() && this.outputStack.isFull();
+        return this.inputStack.isFull();
     }
 
     

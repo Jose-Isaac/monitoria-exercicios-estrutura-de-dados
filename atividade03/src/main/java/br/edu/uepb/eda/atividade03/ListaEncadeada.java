@@ -15,7 +15,7 @@ public class ListaEncadeada implements ListaEncadeada_IF{
 
     @Override
     public int size() {
-        if (isEmpty()) {
+        if (this.isEmpty()) {
             return 0;
         } else {
             return 1 + this.next.size();
@@ -24,13 +24,13 @@ public class ListaEncadeada implements ListaEncadeada_IF{
 
     @Override
     public Integer search(Integer element) throws Exception {
-        if (isEmpty()) {
+        if (this.isEmpty()) {
             throw new Exception("Elemento não encontrado!");
         } else {
-            if (data.equals(element)) {
+            if (this.data.equals(element)) {
                 return this.data;
             } else {
-                return next.search(element);
+                return this.next.search(element);
             }
         }
     }
@@ -48,12 +48,12 @@ public class ListaEncadeada implements ListaEncadeada_IF{
 
     @Override
     public void remove(Integer element) {
-        if (isEmpty()) {
+        if (this.isEmpty()) {
             return;
         } else {
             if (this.data.equals(element)) {
-                this.data = next.data;
-                this.next = next.next;
+                this.data = this.next.data;
+                this.next = this.next.next;
             } else {
                 this.next.remove(element);
             }
@@ -62,7 +62,7 @@ public class ListaEncadeada implements ListaEncadeada_IF{
 
     @Override
     public int[] toArray() {
-       int[] result = new int[size()];
+       int[] result = new int[this.size()];
        toArray(result, this,0);
        return result;
     }
