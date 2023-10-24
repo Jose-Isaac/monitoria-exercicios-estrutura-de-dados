@@ -1,11 +1,6 @@
 package br.edu.uepb.eda;
 
-import br.edu.uepb.eda.atividade03.Fila_IF;
-import br.edu.uepb.eda.atividade03.ListaEncadeada_IF;
-import br.edu.uepb.eda.atividade03.Pilha_IF;
-import br.edu.uepb.eda.atividade03.ListaEncadeada;
-import br.edu.uepb.eda.atividade03.FilaComPilhas;
-import br.edu.uepb.eda.atividade03.PilhaComLista;
+import br.edu.uepb.eda.atividade03.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
