@@ -13,6 +13,7 @@ public class PilhaComLista implements Pilha_IF {
         } else
             throw new Exception();
     }
+
     public Integer pop() throws Exception {
         if (top.element == null) throw new Exception("A pilha está vazia");
         int value = top.element;
@@ -21,10 +22,12 @@ public class PilhaComLista implements Pilha_IF {
         PilhaComLista.total--;
         return value;
     }
+
     public Integer top() throws Exception {
-        if(top.isEmpty()) throw new Exception("A pilha está vazia.");
+        if (top.isEmpty()) throw new Exception("A pilha está vazia.");
         return top.element;
     }
+
     public boolean isEmpty() {
         return top.element == null;
     }
@@ -32,5 +35,4 @@ public class PilhaComLista implements Pilha_IF {
     public boolean isFull() {
         return total == 10;
     }
-
 }

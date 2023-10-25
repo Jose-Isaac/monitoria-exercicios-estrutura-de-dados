@@ -37,5 +37,4 @@ public class FilaComPilhas implements Fila_IF {
     public boolean isFull() {
         return p1.isFull();
     }
-
 }
