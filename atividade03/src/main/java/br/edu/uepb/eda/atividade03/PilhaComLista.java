@@ -5,18 +5,21 @@ public class PilhaComLista implements Pilha_IF {
 	int posPilha;
 	@Override
 	public void push(Integer element) throws Exception {
-		if (pilha.size() < 10) {
-			pilha.insert(element);
-		} else {
+		if (isFull()) {
 			throw new Exception("A pilha está cheia.");
+		} else {
+
+			pilha.insert(element);
 		}
 	}
+
 	@Override
 	public Integer pop() throws Exception {
-		int pilhatopvalor = pilha.data;
+
 		if (isEmpty()) {
 			throw new Exception("A pilha está vazia.");
 		}
+		int pilhatopvalor = pilha.data;
 		pilha.remove(pilhatopvalor);
 		return pilhatopvalor;
 	}
@@ -37,9 +40,9 @@ public class PilhaComLista implements Pilha_IF {
 	}
 	@Override
 	public boolean isFull() {
-		if(pilha.size() <= 10) {
-			return true;
+		if(pilha.size() < 10) {
+			return false;
 		}
-		return false;
+		return true;
 	}
 }

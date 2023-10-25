@@ -5,6 +5,7 @@ public class FilaComPilhas implements Fila_IF {
     protected PilhaComLista p1;
     protected PilhaComLista p2;
 
+
     public FilaComPilhas() {
         p1 = new PilhaComLista();
         p2 = new PilhaComLista();
@@ -18,7 +19,7 @@ public class FilaComPilhas implements Fila_IF {
             while(!p1.isEmpty()) {
                 p2.push(p1.pop());
             }
-            p2.push(element);
+            p1.push(element);
             while(!p2.isEmpty()) {
                 p1.push(p2.pop());
             }
@@ -30,8 +31,8 @@ public class FilaComPilhas implements Fila_IF {
         if (isEmpty()) {
             throw new Exception("Fila vazia.");
         } else {
-            int dequeued = p1.pop();
-            return dequeued;
+            return p1.pop();
+
         }
     }
 
@@ -40,18 +41,14 @@ public class FilaComPilhas implements Fila_IF {
         if (isEmpty()) {
             throw new Exception("Fila vazia.");
         } else {
-            int Head = p1.top();
-            return Head;
+            return p1.top();
+
         }
     }
 
     @Override
     public boolean isEmpty() {
-        if (p1.isEmpty()) {
-            return true;
-        } else {
-            return false;
-        }
+        return p1.isEmpty();
     }
 
     @Override

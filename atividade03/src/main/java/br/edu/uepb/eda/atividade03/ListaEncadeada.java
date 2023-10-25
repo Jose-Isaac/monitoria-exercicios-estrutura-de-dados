@@ -5,6 +5,11 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 	protected ListaEncadeada next;
 	protected Integer head;
 
+	public ListaEncadeada() {
+		this.data = null;
+		this.next = null;
+
+	}
 	Integer metodohead(){
 		while (!isEmpty()) {
 			head = next.data;}
@@ -25,7 +30,7 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 	}
 	@Override
 	public boolean isEmpty() {
-		if (data == null && next == null) {
+		if (data == null) {
 			return true;
 		} else {
 			return false;
@@ -84,7 +89,6 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 		toArrayAux(result, this, 0);
 		return result;
 	}
-
 	private int toArrayAux(int[] result, ListaEncadeada listaEncadeada, int index) {
 		if (!listaEncadeada.isEmpty()) {
 			result[index] = listaEncadeada.data;
