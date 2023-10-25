@@ -1,5 +1,6 @@
 package br.edu.uepb.eda.atividade03;
 
+import br.edu.uepb.eda.ListaEncadeada;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
