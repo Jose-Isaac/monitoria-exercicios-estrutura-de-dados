@@ -8,7 +8,7 @@ public class ListaEncadeada implements ListaEncadeada_IF{
         return head == null;
     }
 
-    public Node searchHead() {
+    public Node getHead() {
         return head;
     }
 

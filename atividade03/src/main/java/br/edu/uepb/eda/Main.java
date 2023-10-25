@@ -4,7 +4,6 @@ import br.edu.uepb.eda.atividade03.*;
 public class Main {
     public static void main(String[] args) throws Exception {
 
-
         System.out.println("Brincando com ListaEncadeada...");
         ListaEncadeada_IF minhaLista = new ListaEncadeada();
         System.out.println(minhaLista.isEmpty());
@@ -50,8 +49,6 @@ public class Main {
         System.out.println(minhaFila.dequeue() == 200);
         System.out.println(minhaFila.isEmpty());
         System.out.println();
-
-        //OBS.: Espera-se que nenhum print mostre 'false' na tela!
 
     }
 }
