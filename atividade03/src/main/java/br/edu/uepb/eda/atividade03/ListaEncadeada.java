@@ -64,11 +64,11 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 			data = element;
 			next =  new ListaEncadeada();
 		}else {
-			ListaEncadeada newNode = new ListaEncadeada();
-			newNode.setNext(next);
-			newNode.setData(data);
+			ListaEncadeada new_node = new ListaEncadeada();
+			new_node.setNext(next);
+			new_node.setData(data);
 			data = element;
-			next = newNode;
+			next = new_node;
 		}
 	}
 
@@ -89,16 +89,16 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 
 	@Override
 	public int[] toArray() {
-		 int[] resultado = new int[size()];
-	     toArrayRecursivo(resultado, this, 0);
-	     return resultado;
+		 int[] result = new int[size()];
+	     toArrayRecursivo(result, this, 0);
+	     return result;
 	}
 
-	private int toArrayRecursivo(int[] result, ListaEncadeada listaEncadeada, int index) {
+	private int toArrayRecursivo(int[] result, ListaEncadeada lista_encadeada, int index) {
 		
-	     if (!listaEncadeada.isEmpty()) {
-	          result[index] = listaEncadeada.data;
-	          toArrayRecursivo(result, listaEncadeada.next, index+1);
+	     if (!lista_encadeada.isEmpty()) {
+	          result[index] = lista_encadeada.data;
+	          toArrayRecursivo(result, lista_encadeada.next, index+1);
 	       }
 	     return index;	
 	}

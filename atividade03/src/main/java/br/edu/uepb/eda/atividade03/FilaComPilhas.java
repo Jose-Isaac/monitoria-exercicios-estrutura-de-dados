@@ -11,12 +11,12 @@ package br.edu.uepb.eda.atividade03;
 
 public class FilaComPilhas implements Fila_IF {
 
-    private PilhaComLista p1;
-    private PilhaComLista p2;
+    private PilhaComLista pilha_1;
+    private PilhaComLista pilha_2;
 
     public FilaComPilhas() {
-        this.p1 = new PilhaComLista();
-        this.p2 = new PilhaComLista();
+        this.pilha_1 = new PilhaComLista();
+        this.pilha_2 = new PilhaComLista();
     }
 
    @Override
@@ -24,12 +24,12 @@ public class FilaComPilhas implements Fila_IF {
 		if (isFull()) {
 			throw new Exception("Fila está cheia.");
 		} else {
-			while(!p1.isEmpty()) {
-				p2.push(p1.pop());
+			while(!pilha_1.isEmpty()) {
+				pilha_2.push(pilha_1.pop());
 			}
-			p2.push(element);
-			while(!p2.isEmpty()) {
-				p1.push(p2.pop());
+			pilha_2.push(element);
+			while(!pilha_2.isEmpty()) {
+				pilha_1.push(pilha_2.pop());
 			}
 		}
 	}
@@ -37,9 +37,9 @@ public class FilaComPilhas implements Fila_IF {
     @Override
     public Integer dequeue() throws Exception {
         if (isEmpty()) {
-            throw new Exception("Nao da para remover pois esta vazia.");
+            throw new Exception("Não é possível remover (está vazia).");
         }else {
-			int dequeued = p1.pop();
+			int dequeued = pilha_1.pop();
 			return dequeued;
 		}
     }
@@ -47,20 +47,20 @@ public class FilaComPilhas implements Fila_IF {
     @Override
     public Integer head() throws Exception {
         if (isEmpty()) {
-            throw new Exception("A fila esta vazia.");
+            throw new Exception("A fila está vazia.");
         }else {
-			int Head = p1.top();
+			int Head = pilha_1.top();
 			return Head;
 		}
     }
 
     @Override
     public boolean isEmpty() {
-        return p1.isEmpty() && p2.isEmpty();
+        return pilha_1.isEmpty() && pilha_2.isEmpty();
     }
 
     @Override
     public boolean isFull() {
-        return p1.isFull();
+        return pilha_1.isFull();
     }
 }
