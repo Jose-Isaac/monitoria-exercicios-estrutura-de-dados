@@ -10,83 +10,96 @@ package br.edu.uepb.eda.atividade03;
  */
 
 public class ListaEncadeada implements ListaEncadeada_IF {
+	protected Integer data;
+	protected ListaEncadeada next;
+	
+	public Integer getData() {
+		return data;
+	}
 
-    private Node head;
-    private int size;
+	public void setData(Integer data) {
+		this.data = data;
+	}
 
-    private class Node {
-        Integer data;
-        Node next;
+	public ListaEncadeada getNext() {
+		return next;
+	}
 
-        Node(Integer data) {
-            this.data = data;
-            this.next = null;
-        }
-    }
+	public void setNext(ListaEncadeada next) {
+		this.next = next;
+	}
+	
+	@Override
+	public boolean isEmpty() {
+		if(data == null) {
+			return true;
+		}
+		return false;
+	}
 
-    @Override
-    public boolean isEmpty() {
-        return head == null;
-    }
+	@Override
+	public int size() {
+		if(isEmpty()) {
+			return 0;
+		}
+		return 1 + next.size();
+	}
 
-    @Override
-    public int size() {
-        return size;
-    }
+	@Override
+	public Integer search(Integer element) throws Exception {
+		if (isEmpty()) {
+			throw new Exception("Elemento não encontrado");
+		} else {
+			if (data.equals(element)) {
+				return element;
+			} else {
+				return next.search(element);
+			}
+		}
+	}
 
-    @Override
-    public Integer search(Integer element) {
-        return searchRecursive(head, element, 0);
-    }
+	@Override
+	public void insert(Integer element) {
+		if(isEmpty()) {
+			data = element;
+			next =  new ListaEncadeada();
+		}else {
+			ListaEncadeada newNode = new ListaEncadeada();
+			newNode.setNext(next);
+			newNode.setData(data);
+			data = element;
+			next = newNode;
+		}
+	}
 
-    private Integer searchRecursive(Node current, Integer element, int index) {
-        if (current == null) {
-            return null;
-        } else if (current.data.equals(element)) {
-            return element;
-        }
+	@Override
+	public void remove(Integer element) {
+		if(isEmpty()) {
+			
+		}else {
+			if (data.equals(element)) {
+				this.data = next.data;
+				next = next.next;
+			}else {
+				next.remove(element);
+			}
+		}
+		
+	}
 
-        return searchRecursive(current.next, element, index + 1);
-    }
+	@Override
+	public int[] toArray() {
+		 int[] resultado = new int[size()];
+	     toArrayRecursivo(resultado, this, 0);
+	     return resultado;
+	}
 
-    @Override
-    public void insert(Integer element) {
-        Node newNode = new Node(element);
-        newNode.next = head;
-        head = newNode;
-        size++;
-    }
-
-    @Override
-    public void remove(Integer element) {
-        head = removeRecursively(head, element);
-    }
-
-    private Node removeRecursively(Node current, Integer element) {
-        if (current == null) {
-            return null;
-        } else if (current.data.equals(element)) {
-            size--;
-            return current.next;
-        }
-
-        current.next = removeRecursively(current.next, element);
-        return current;
-    }
-
-    @Override
-    public int[] toArray() {
-        int[] array = new int[size];
-        toArrayRecursively(head, array, 0);
-        return array;
-    }
-
-    private void toArrayRecursively(Node current, int[] array, int index) {
-        if (current == null) {
-            return;
-        }
-
-        array[index] = current.data;
-        toArrayRecursively(current.next, array, index + 1);
-    }
+	private int toArrayRecursivo(int[] result, ListaEncadeada listaEncadeada, int index) {
+		
+	     if (!listaEncadeada.isEmpty()) {
+	          result[index] = listaEncadeada.data;
+	          toArrayRecursivo(result, listaEncadeada.next, index+1);
+	       }
+	     return index;	
+	}
 }
