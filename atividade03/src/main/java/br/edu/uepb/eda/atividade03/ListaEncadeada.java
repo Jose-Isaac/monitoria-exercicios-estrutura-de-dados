@@ -1,23 +1,15 @@
 package br.edu.uepb.eda.atividade03;
 public class ListaEncadeada implements ListaEncadeada_IF{
 
-	private Node head; 
-
-    private class Node {
-
-        Integer data;
-        Node    next;
-
-        Node(Integer data) {
-            this.data = data;
-            this.next = null;
-        }
-  
-    }
+	private Node head;
 
     @Override
     public boolean isEmpty() {
         return head == null;
+    }
+
+    public Node searchHead() {
+        return head;
     }
 
     @Override
@@ -34,10 +26,16 @@ public class ListaEncadeada implements ListaEncadeada_IF{
 
     @Override
     public Integer search(Integer element) throws Exception {
-        return searchRecursive(head, element);
+        Integer result = searchRecursive(head, element);
+        if (result != null) {
+            return result;
+        } else {
+            throw new Exception("Null");
+        }
+
     }
 
-    private Integer searchRecursive(Node node, Integer element) throws Exception {
+    private Integer searchRecursive(Node node, Integer element){
         if (node == null) {
             return null;
         }
