@@ -1,11 +1,10 @@
 package br.edu.uepb.eda;
 
 import br.edu.uepb.eda.atividade03.*;
+
 public class Main {
     public static void main(String[] args) throws Exception {
-
-
-        System.out.println("Brincando com ListaEncadeada...");
+        System.out.println("1) Brincando com ListaEncadeada: ");
         ListaEncadeada_IF minhaLista = new ListaEncadeada();
         System.out.println(minhaLista.isEmpty());
         System.out.println(minhaLista.size() == 0);
@@ -31,7 +30,7 @@ public class Main {
         System.out.println(minhaLista.search(200) == 200);
         System.out.println();
 
-        System.out.println("Brincando com PilhaComLista...");
+        System.out.println("2) Brincando com PilhaComLista:");
         Pilha_IF minhaPilha = new PilhaComLista();
         minhaPilha.push(100);
         minhaPilha.push(200);
@@ -41,7 +40,7 @@ public class Main {
         System.out.println(minhaPilha.isEmpty());
         System.out.println();
 
-        System.out.println("Brincando com FilaComPilhas...");
+        System.out.println("3) Brincando com FilaComPilhas:");
         Fila_IF minhaFila = new FilaComPilhas();
         minhaFila.enqueue(100);
         minhaFila.enqueue(200);
@@ -50,8 +49,6 @@ public class Main {
         System.out.println(minhaFila.dequeue() == 200);
         System.out.println(minhaFila.isEmpty());
         System.out.println();
-
         //OBS.: Espera-se que nenhum print mostre 'false' na tela!
-
     }
 }
