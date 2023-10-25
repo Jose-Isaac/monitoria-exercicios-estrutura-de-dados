@@ -62,11 +62,10 @@ public class ListaEncadeada implements ListaEncadeada_IF {
         return array;
     }
 
-    public int[] toArrayRecursive(ListaEncadeada current_recursive, int[] arrayRecursive, int from, int to) {
+    public void toArrayRecursive(ListaEncadeada current_recursive, int[] arrayRecursive, int from, int to) {
         if (current_recursive != null && from < to) {
             arrayRecursive[from] = current_recursive.element;
-            return toArrayRecursive(current_recursive.prox, arrayRecursive, from + 1, to);
+            toArrayRecursive(current_recursive.prox, arrayRecursive, from + 1, to);
         }
-        return new int[]{};
     }
 }

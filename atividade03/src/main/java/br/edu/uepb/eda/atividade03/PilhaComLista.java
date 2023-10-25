@@ -5,21 +5,23 @@ public class PilhaComLista implements Pilha_IF {
     private ListaEncadeada top = new ListaEncadeada();
     // Usando uma variável auxiliar total, pois em casos em que o tamanho é
     // n->infinito, usar size seria custoso nos métodos isFull e Enqueue.
-    protected static int total;
+    protected int total;
 
     public void push(Integer element) throws Exception {
-        if (++PilhaComLista.total <= 10) {
-            top.insert(element);
-        } else
+        if (total == 10) {
             throw new Exception();
+        } else {
+            top.insert(element);
+            total++;
+        }
+
     }
 
     public Integer pop() throws Exception {
-        if (top.element == null) throw new Exception("A pilha está vazia");
+        if (total == 0) throw new Exception("A pilha está vazia");
         int value = top.element;
-
         top.remove(value);
-        PilhaComLista.total--;
+        total--;
         return value;
     }
 
@@ -29,7 +31,7 @@ public class PilhaComLista implements Pilha_IF {
     }
 
     public boolean isEmpty() {
-        return top.element == null;
+        return total == 0;
     }
 
     public boolean isFull() {
