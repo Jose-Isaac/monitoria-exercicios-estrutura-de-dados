@@ -15,12 +15,10 @@ public class ListaEncadeada implements ListaEncadeada_IF {
         element = null;
     }
 
-    @Override
     public boolean isEmpty() {
         return element == null;
     }
 
-    @Override
     public int size() {
         if (this.element == null) {
             return 0;
@@ -30,26 +28,22 @@ public class ListaEncadeada implements ListaEncadeada_IF {
         return this.prox.size() + 1;
     }
 
-    @Override
     public Integer search(Integer element) throws Exception {
         if (this.element.equals(element)) {
             return element;
         }
         if (this.prox == null) {
-            return null;
+            throw new Exception("Elemento não encontrado");
         }
         return this.prox.search(element);
     }
 
-    @Override
     public void insert(Integer element) {
         ListaEncadeada noAtual = new ListaEncadeada(this.element, this.prox);
         this.element = element;
         this.prox = noAtual;
-
     }
 
-    @Override
     public void remove(Integer element) {
         if (this.element.equals(element)) {
             // main.ListaEncadeada noAux = this.prox;
@@ -61,7 +55,6 @@ public class ListaEncadeada implements ListaEncadeada_IF {
 
     }
 
-    @Override
     public int[] toArray() {
         int tamanho = size();
         int[] array = new int[tamanho];

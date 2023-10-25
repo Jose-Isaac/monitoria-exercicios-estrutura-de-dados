@@ -2,8 +2,7 @@ package br.edu.uepb.eda.atividade03;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 public class Test0_ListaEncadeada {
 	static ListaEncadeada_IF lista;
@@ -33,7 +32,7 @@ public class Test0_ListaEncadeada {
 			lista.insert(i);
 		}
 		try {
-			assertEquals(2, lista.search(2));
+			assertEquals(2, lista.search(2).intValue());
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

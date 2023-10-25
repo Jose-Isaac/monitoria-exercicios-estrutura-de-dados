@@ -2,8 +2,7 @@ package br.edu.uepb.eda.atividade03;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 public class Test0_Pilha {
 	private static Pilha_IF pilha;
@@ -24,7 +23,7 @@ public class Test0_Pilha {
 			for (int i = 0; i < 5; i++) {
 				pilha.push(i);
 			}
-			assertEquals(4, pilha.top());
+			assertEquals(4, pilha.top().intValue());
 		} catch (Exception e) {
 			e.getStackTrace();
 		}
@@ -48,8 +47,8 @@ public class Test0_Pilha {
 			for (int i = 0; i < 5; i++) {
 				pilha.push(i);
 			}
-			assertEquals(4, pilha.pop());
-			assertEquals(3, pilha.top());
+			assertEquals(4, pilha.pop().intValue());
+			assertEquals(3, pilha.top().intValue());
 		} catch (Exception e) {
 			e.getStackTrace();
 		}
