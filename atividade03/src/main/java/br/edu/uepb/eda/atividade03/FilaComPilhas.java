@@ -55,7 +55,7 @@ public class FilaComPilhas implements Fila_IF {
 
     @Override
     public boolean isFull() {
-        return pilhaEntrada.isFull();
+        return pilhaEntrada.isFull() || pilhaSaida.isFull();
     }
 }
 
