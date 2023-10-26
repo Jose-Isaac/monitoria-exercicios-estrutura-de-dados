@@ -13,7 +13,7 @@ public class PilhaComLista implements Pilha_IF {
 
     @Override
     public void push(Integer element) throws Exception {
-        if (lista.size() == limite) {
+        if (lista.size() >= limite) {
             throw new Exception("A pilha está cheia. Não é possível adicionar mais elementos.");
         }
         lista.insert(element);
@@ -47,6 +47,6 @@ public class PilhaComLista implements Pilha_IF {
 
     @Override
     public boolean isFull() {
-        return lista.size() == limite;
+        return lista.size() >= this.limite;
     }
 }
