@@ -50,5 +50,6 @@ public class Main {
         System.out.println(minhaFila.isEmpty());
         System.out.println();
 
+        //OBS.: Espera-se que nenhum print mostre 'false' na tela!
     }
 }

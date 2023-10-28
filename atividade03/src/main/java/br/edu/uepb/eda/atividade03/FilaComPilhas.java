@@ -12,10 +12,19 @@ public class FilaComPilhas implements Fila_IF {
 
     @Override
     public void enqueue(Integer element) throws Exception {
-        if (isFull()) {
+        if (pilhaEntrada.isFull()) {
             throw new Exception("fila cheia, compre um HD");
         }
+
+        while (!pilhaSaida.isEmpty()) {
+            pilhaEntrada.push(pilhaSaida.pop());
+        }
+
         pilhaEntrada.push(element);
+
+        while (!pilhaEntrada.isEmpty()) {
+            pilhaSaida.push(pilhaEntrada.pop());
+        }
     }
 
     @Override
@@ -23,13 +32,6 @@ public class FilaComPilhas implements Fila_IF {
         if (isEmpty()) {
             throw new Exception("fila vazia");
         }
-
-        if (pilhaSaida.isEmpty()) {
-            while (!pilhaEntrada.isEmpty()) {
-                pilhaSaida.push(pilhaEntrada.pop());
-            }
-        }
-
         return pilhaSaida.pop();
     }
 
@@ -38,24 +40,17 @@ public class FilaComPilhas implements Fila_IF {
         if (isEmpty()) {
             throw new Exception("A fila está vazia.");
         }
-
-        if (pilhaSaida.isEmpty()) {
-            while (!pilhaEntrada.isEmpty()) {
-                pilhaSaida.push(pilhaEntrada.pop());
-            }
-        }
-
         return pilhaSaida.top();
     }
 
     @Override
     public boolean isEmpty() {
-        return pilhaEntrada.isEmpty() && pilhaSaida.isEmpty();
+        return pilhaSaida.isEmpty();
     }
 
     @Override
     public boolean isFull() {
-        return pilhaEntrada.isFull() || pilhaSaida.isFull();
+        return pilhaSaida.isFull();
     }
 }
 

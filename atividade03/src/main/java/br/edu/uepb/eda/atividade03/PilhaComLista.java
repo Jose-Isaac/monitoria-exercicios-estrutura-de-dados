@@ -3,21 +3,18 @@ package br.edu.uepb.eda.atividade03;
 public class PilhaComLista implements Pilha_IF {
 
     public int limite = 10;
-    private Node head;
     private ListaEncadeada lista;
 
     public PilhaComLista() {
-        head = null;
         lista = new ListaEncadeada();
     }
 
     @Override
     public void push(Integer element) throws Exception {
-        if (lista.size() >= limite) {
+        if (isFull()) {
             throw new Exception("A pilha está cheia. Não é possível adicionar mais elementos.");
         }
         lista.insert(element);
-        head = lista.getHead();
     }
 
     @Override
@@ -25,11 +22,9 @@ public class PilhaComLista implements Pilha_IF {
         if (isEmpty()) {
             throw new Exception("A pilha está vazia. Não é possível remover elementos.");
         }
-
-        Integer top = head.data;
-        lista.remove(head.data);
-        head = lista.getHead();
-        return top;
+        Integer topElement = top();
+        lista.remove(topElement);
+        return topElement;
     }
 
     @Override
@@ -37,7 +32,7 @@ public class PilhaComLista implements Pilha_IF {
         if (isEmpty()) {
             throw new Exception("A pilha está vazia.");
         }
-        return head.data;
+        return lista.getHead().data;
     }
 
     @Override
@@ -47,6 +42,6 @@ public class PilhaComLista implements Pilha_IF {
 
     @Override
     public boolean isFull() {
-        return lista.size() >= this.limite;
+        return lista.size() >= limite;
     }
 }

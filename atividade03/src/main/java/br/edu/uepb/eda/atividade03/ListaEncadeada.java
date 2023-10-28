@@ -2,6 +2,14 @@ package br.edu.uepb.eda.atividade03;
 public class ListaEncadeada implements ListaEncadeada_IF{
 
 	private Node head;
+    private Node tail;
+    private int size;
+
+    public ListaEncadeada() {
+        head = null;
+        tail = null;
+        size = 0;
+    }
 
     @Override
     public boolean isEmpty() {
@@ -14,15 +22,9 @@ public class ListaEncadeada implements ListaEncadeada_IF{
 
     @Override
     public int size() {
-        return sizeRecursive(head);
+        return size;
     }
 
-    private int sizeRecursive(Node node) {
-        if (node == null) {
-            return 0;
-        }
-        return 1 + sizeRecursive(node.next);
-    }
 
     @Override
     public Integer search(Integer element) throws Exception {
@@ -47,14 +49,20 @@ public class ListaEncadeada implements ListaEncadeada_IF{
 
     @Override
     public void insert(Integer element) {
-        Node newNode = new Node(element);
-        newNode.next = head;
+        Node newNode = new Node(element, head);
+        if(size == 1) {
+            tail = head;
+        }
         head = newNode;
+        size++;
     }
 
     @Override
     public void remove(Integer element) {
         head = removeRecursive(head, element);
+        if (size != 0) {
+            size--;
+        }
     }
 
     private Node removeRecursive(Node node, Integer element) {
@@ -70,7 +78,7 @@ public class ListaEncadeada implements ListaEncadeada_IF{
 
     @Override
     public int[] toArray() {
-    	int[] array = new int[sizeRecursive(head)];
+    	int[] array = new int[size];
         toArrayRecursive(head, array, 0);
         return array;
     }
