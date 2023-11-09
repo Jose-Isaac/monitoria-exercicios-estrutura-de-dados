@@ -1,6 +1,4 @@
-package br.edu.uepb.eda;
-
-import br.edu.uepb.eda.atividade03.ListaEncadeada_IF;
+package br.edu.uepb.eda.atividade03;
 
 public class ListaEncadeada implements ListaEncadeada_IF {
     public ListaEncadeada prox;

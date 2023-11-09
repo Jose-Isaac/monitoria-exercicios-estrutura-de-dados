@@ -1,5 +1,6 @@
-package br.edu.uepb.eda;
+package br.edu.uepb.eda.atividade03;
 
+import br.edu.uepb.eda.atividade03.ListaEncadeada;
 import br.edu.uepb.eda.atividade03.Pilha_IF;
 
 public class PilhaComLista implements Pilha_IF {

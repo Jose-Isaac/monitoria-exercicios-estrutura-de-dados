@@ -1,6 +1,4 @@
-package br.edu.uepb.eda;
-
-import br.edu.uepb.eda.atividade03.Fila_IF;
+package br.edu.uepb.eda.atividade03;
 
 public class FilaComPilhas implements Fila_IF {
     public PilhaComLista pilha01 = new PilhaComLista();
