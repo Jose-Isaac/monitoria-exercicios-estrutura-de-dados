@@ -25,9 +25,13 @@ jobs:
           token: ${{ secrets.TOKEN_TO_ACCESS_PRIVATE_REPO_WITH_TEST }}
           path: tests
 
-      - name: Copiar teste lista encadeada
+      - name: Copiar teste tabala hash
         run: |
-          cp tests/atividade04/Test_ListaEncadeada.java atividade04/src/test/java/br/edu/uepb/eda/atividade04
+          cp tests/atividade04/Test_TabelaHash.java atividade04/src/test/java/br/edu/uepb/eda/atividade04
+
+      - name: Copiar teste bst
+        run: |
+          cp tests/atividade04/Test_BST.java atividade04/src/test/java/br/edu/uepb/eda/atividade04
 
       - name: Compilar e rodar testes com Gradle
         run: |
