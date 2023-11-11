@@ -16,7 +16,7 @@ public class Test0_ListaEncadeada {
 	
 	@Test
 	public void testSize(){
-		assertEquals(0, l.size()); //com a lista vazia
+		assertEquals((Integer) 0, l.size()); //com a lista vazia
 	}
 	
 	@Test
@@ -25,7 +25,7 @@ public class Test0_ListaEncadeada {
 			l.insert(i);
 		}
 		l.remove(3);
-		assertEquals(4, l.size());
+		assertEquals((Integer) 4, l.size());
 	}
 	
 	//Outros testes ...

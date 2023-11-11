@@ -6,7 +6,7 @@ package br.edu.uepb.eda.atividade03;
  * OBS.: o m�todo dequeue deve ter custo O(1).
  */
 public interface Fila_IF {
-	public void enqueue(Integer element) throws Exception;
+	public void enqueue(int element) throws Exception;
 	public Integer dequeue() throws Exception;
 	public Integer head() throws Exception;
 	public boolean isEmpty();
