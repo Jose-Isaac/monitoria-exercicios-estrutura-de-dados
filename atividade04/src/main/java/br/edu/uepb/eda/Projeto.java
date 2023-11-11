@@ -1,8 +1,11 @@
-package br.edu.uepb.eda;
+package atividade04;
 
-import br.edu.uepb.eda.atividade04.*;
-public class Main {
+import java.util.Arrays;
+import java.util.Random;
+public class BrincandoComEstruturas {
+
     public static void main(String[] args) throws Exception {
+
         System.out.println("Brincando com BST...");
         BST_IF minhaArvore = new BST();
         minhaArvore.insert(8);
@@ -62,5 +65,57 @@ public class Main {
         System.out.println();
 
         //OBS.: Espera-se que nenhum print mostre 'false' na tela!
+        //é usada para encontrar o maior número na lista que seja menor do que o valor de referência (neste caso, 9).
+        BST bst = new BST();
+
+
+        int[] numeros = gerarListaAleatoria();
+
+
+        int valorReferencia = 9;
+
+
+        for (int num : numeros) {
+            bst.insert(num);
+        }
+
+
+        Integer maiorMenorValor = encontrarMaiorMenorValor(bst, valorReferencia);
+
+        if (maiorMenorValor != null) {
+            System.out.println("O maior número menor que " + valorReferencia + " na lista é: " + maiorMenorValor);
+        } else {
+            System.out.println("Nenhum número menor que " + valorReferencia + " foi encontrado na lista.");
+        }
+    }
+
+
+    private static int[] gerarListaAleatoria() {
+        Random random = new Random();
+        int tamanho = random.nextInt(10) + 5; // Gerar uma lista com 5 a 14 números
+        int[] numeros = new int[tamanho];
+
+        for (int i = 0; i < tamanho; i++) {
+            numeros[i] = random.nextInt(50); // Gerar números aleatórios entre 0 e 49
+        }
+
+        return numeros;
+    }
+
+
+    private static Integer encontrarMaiorMenorValor(BST bst, int valorReferencia) {
+        int resultado = Integer.MIN_VALUE;
+        BST atual = bst;
+
+        while (atual != null) {
+            if (atual.data < valorReferencia) {
+                resultado = atual.data;
+                atual = atual.esquerda;
+            } else {
+                atual = atual.direita;
+            }
+        }
+
+        return resultado;
     }
 }
