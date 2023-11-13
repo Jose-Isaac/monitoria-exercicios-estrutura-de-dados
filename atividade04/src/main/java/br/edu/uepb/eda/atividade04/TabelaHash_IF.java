@@ -1,4 +1,4 @@
-package atividade04;
+package br.edu.uepb.eda.atividade04;
 
 /*
  * Interface para implementação da classe "TabelaHash", a qual deve
