@@ -1,4 +1,4 @@
-package br.edu.uepb.eda.atividade04;
+package atividade04;
 
 /*
  * Interface para implementação da classe "TabelaHash", a qual deve
@@ -6,8 +6,8 @@ package br.edu.uepb.eda.atividade04;
  */
 public interface TabelaHash_IF {
 	public void insert(Integer element);
-	public void remove(Integer element) throws Exception; //lan�ar exce��o caso o element n�o esteja na tabela
-	public int search(Integer element) throws Exception; //lan�ar exce��o caso o element n�o esteja na tabela
+	public void remove(Integer element) throws Exception; //lançar exceção caso o element não esteja na tabela
+	public int search(Integer element) throws Exception; //lançar exceção caso o element não esteja na tabela
 	public String print();
 	
 	/*
