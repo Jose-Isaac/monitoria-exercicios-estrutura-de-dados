@@ -24,6 +24,10 @@ jobs:
           repository: Jose-Isaac/monitoria-estrutura-de-dados
           token: ${{ secrets.TOKEN_TO_ACCESS_PRIVATE_REPO_WITH_TEST }}
           path: tests
+      
+      - name: Criar diretorio
+        run: |
+          mkdir atividade04/src/test atividade04/src/test/java atividade04/src/test/java/br atividade04/src/test/java/br/edu atividade04/src/test/java/br/edu/uepb atividade04/src/test/java/br/edu/uepb/eda atividade04/src/test/java/br/edu/uepb/eda/atividade04
 
       - name: Copiar teste tabala hash
         run: |
