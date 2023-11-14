@@ -10,11 +10,9 @@ public class BST implements BST_IF{
 	protected BST direita;
 	protected BST parametro;
 
-	BST (){
 
-	}
 
-	BST (Integer data){
+	public BST (Integer data){
 		this.data = data;
 	}
 
