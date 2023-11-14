@@ -118,12 +118,12 @@ public class BST implements BST_IF {
 		return isCompleteRec(root, 0, heightMin(root));
 	}
 
-	private int heightMin(TreeNode node) {
-		if (node == null) {
+	private int heightMin(Node root) {
+		if (root == null) {
 			return 0;
 		} else {
-			int leftHeight = height(node.left);
-			int rightHeight = height(node.right);
+			int leftHeight = height(root.left);
+			int rightHeight = height(root.right);
 
 			if (leftHeight < rightHeight)
 				return leftHeight + 1;
@@ -143,7 +143,7 @@ public class BST implements BST_IF {
 			return root.left == null && root.right == null;
 		;
 
-		return isCompleteRec(root.left, index + 1, nodeCount) && isCompleteRec(root.right, index + 1, nodeCount);
+		return isCompleteRec(root.left, index + 1, heightMin) && isCompleteRec(root.right, index + 1, heightMin);
 	}
 
 }
