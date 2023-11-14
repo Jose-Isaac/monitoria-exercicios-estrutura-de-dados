@@ -139,9 +139,11 @@ public class BST implements BST_IF {
 		if (root == null)
 			return true;
 
-		if (index >= heightMin)
+		if (index == (heightMin - 1))
 			return root.left == null && root.right == null;
-		;
+
+		else if (index > (heightMin - 1))
+			return false;
 
 		return isCompleteRec(root.left, index + 1, heightMin) && isCompleteRec(root.right, index + 1, heightMin);
 	}
