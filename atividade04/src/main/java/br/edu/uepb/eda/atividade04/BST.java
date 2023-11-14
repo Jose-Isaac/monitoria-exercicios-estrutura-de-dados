@@ -122,8 +122,8 @@ public class BST implements BST_IF {
 		if (root == null) {
 			return 0;
 		} else {
-			int leftHeight = height(root.left);
-			int rightHeight = height(root.right);
+			int leftHeight = heightMin(root.left);
+			int rightHeight = heightMin(root.right);
 
 			if (leftHeight < rightHeight)
 				return leftHeight + 1;
