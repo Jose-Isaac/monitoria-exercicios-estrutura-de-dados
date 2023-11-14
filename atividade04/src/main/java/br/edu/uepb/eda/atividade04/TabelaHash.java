@@ -1,7 +1,6 @@
-
-
-import java.util.LinkedList;
 package  br.edu.uepb.eda.atividade04;
+import java.util.LinkedList;
+
 
 public class TabelaHash implements TabelaHash_IF {
     private static final int TAMANHO_INICIAL = 8; // Tamanho inicial da tabela

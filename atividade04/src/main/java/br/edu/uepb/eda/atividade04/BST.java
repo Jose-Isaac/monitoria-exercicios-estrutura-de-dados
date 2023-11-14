@@ -1,7 +1,7 @@
-
+package  br.edu.uepb.eda.atividade04;
 import java.util.ArrayList;
 import java.util.List;
-package  br.edu.uepb.eda.atividade04;
+
 
 public class BST implements BST_IF {
 	protected Integer data;
