@@ -2,29 +2,30 @@ package  br.edu.uepb.eda.atividade04;
 import java.util.LinkedList;
 
 
-public class TabelaHash implements TabelaHash_IF {
-    private static final int TAMANHO_INICIAL = 8; // Tamanho inicial da tabela
-    private LinkedList<Integer>[] tabela; // Array de listas encadeadas
+public class TabelaHash implements TabelaHash_IF{
+
+    private static final int tam = 8;
+    private LinkedList<Integer>[] tabela;
 
     public TabelaHash(Integer i) {
-        this.tabela = new LinkedList[TAMANHO_INICIAL];
-        for (int j = 0; j < TAMANHO_INICIAL; j++) {
+        this.tabela = new LinkedList[tam];
+        for (int j = 0; j < tam; j++) {
             tabela[j] = new LinkedList<>();
         }
     }
 
-    private int hashFunction(Integer element) {
-        return element % TAMANHO_INICIAL; 
+    private int methash(Integer element) {
+        return element % tam;
     }
 
     @Override
     public void insert(Integer element) {
-        int index = hashFunction(element);
-        tabela[index].addFirst(element); 
+        int index = methash(element);
+        tabela[index].addFirst(element);
     }
     @Override
     public void remove(Integer element) throws Exception {
-        int index = hashFunction(element);
+        int index = methash(element);
         if (tabela[index] == null) {
             throw new Exception("Elemento não encontrado na tabela");
         }
@@ -34,9 +35,9 @@ public class TabelaHash implements TabelaHash_IF {
     }
 
     @Override
- 
+
     public Integer search(Integer element) throws Exception {
-        int index = hashFunction(element);
+        int index = methash(element);
         if (tabela[index].contains(element)) {
             return element;
         } else {
@@ -46,15 +47,17 @@ public class TabelaHash implements TabelaHash_IF {
     @Override
     public String print() {
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < TAMANHO_INICIAL; i++) {
+        for (int i = 0; i < tam; i++) {
             result.append(i).append(": ");
             if (!tabela[i].isEmpty()) {
                 for (Integer elem : tabela[i]) {
                     result.append(elem).append(", ");
                 }
-                result.setLength(result.length() - 2); // Remove a última vírgula e o espaço
+                result.setLength(result.length() - 2);
             }
             result.append("\n");
         }
         return result.toString();
-    }}
+    }
+
+}

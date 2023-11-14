@@ -67,7 +67,13 @@ public class BrincandoComEstruturas {
 
         //OBS.: Espera-se que nenhum print mostre 'false' na tela!
         //é usada para encontrar o maior número na lista que seja menor do que o valor de referência (neste caso, 9).
-        BST bst = new BST();
+        public BST() {
+            // Construtor para criar uma árvore vazia ou outro comportamento desejado
+        }
+
+// Então você pode criar uma instância sem passar um valor inicial
+        BST bst = new BST(0);
+
 
 
         int[] numeros = gerarListaAleatoria();
