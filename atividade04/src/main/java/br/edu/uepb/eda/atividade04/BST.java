@@ -115,45 +115,33 @@ public class BST implements BST_IF {
 
 	@Override
 	public boolean isComplete() {
-		return isCompleteRec(root, 0, countNodes(root));
+		return isCompleteRec(root, 0, heightMin(root));
 	}
 
-	private int pot(int base, int expoente) {
-		int resultado = 1;
-
-		if (expoente == 0)
-			return 1;
-
-		if (expoente == 1)
-			return base;
-
-		if (expoente > 0) {
-			for (int i = 0; i < expoente; i++) {
-				resultado *= base;
-			}
-		} else {
-			for (int i = 0; i > expoente; i--) {
-				resultado /= base;
-			}
-		}
-
-		return resultado;
-	}
-
-	private int countNodes(Node root) {
-		if (root == null) {
+	private int heightMin(TreeNode node) {
+		if (node == null) {
 			return 0;
+		} else {
+			int leftHeight = height(node.left);
+			int rightHeight = height(node.right);
+
+			if (leftHeight < rightHeight)
+				return leftHeight + 1;
+			else
+				return rightHeight + 1;
 		}
-		return 1 + countNodes(root.left) + countNodes(root.right);
 	}
 
-	private boolean isCompleteRec(Node root, int index, int nodeCount) {
+	private boolean isCompleteRec(Node root, int index, int heightMin) {
+		if (root == null && index == 0)
+			return false;
+
 		if (root == null)
 			return true;
 
-		int idealNodeCount = pot(2, (index + 1)) - 1;
-		if (nodeCount > idealNodeCount)
-			return false;
+		if (index >= heightMin)
+			return root.left == null && root.right == null;
+		;
 
 		return isCompleteRec(root.left, index + 1, nodeCount) && isCompleteRec(root.right, index + 1, nodeCount);
 	}
