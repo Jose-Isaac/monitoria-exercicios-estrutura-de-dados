@@ -2,6 +2,7 @@ package atividade04;
 
 import java.util.Arrays;
 import java.util.Random;
+import br.edu.uepb.eda.atividade04.*;
 public class BrincandoComEstruturas {
 
     public static void main(String[] args) throws Exception {
