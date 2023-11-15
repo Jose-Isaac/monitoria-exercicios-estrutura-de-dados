@@ -40,7 +40,7 @@ public class BrincandoComEstruturas {
             bst.insert(num);
         }
 
-        Integer maiorMenorValor = encontrarMaiorMenorValor(Bst bst,int valorReferencia);
+        Integer maiorMenorValor = encontrarMaiorMenorValor( bst,valorReferencia);
 
         if (maiorMenorValor != null) {
             System.out.println("O maior número menor que " + valorReferencia + " na lista é: " + maiorMenorValor);
