@@ -1,13 +1,10 @@
-package br.edu.uepb.eda.atividade04;
 
-/*
- * Interface para implementação da classe "TabelaHash", a qual deve
- * ser implementada usando endereçamento fechado e o método da divisão.
- */
+
 public interface TabelaHash_IF {
+	
 	public void insert(Integer element);
-	public void remove(Integer element) throws Exception; //lan�ar exce��o caso o element n�o esteja na tabela
-	public int search(Integer element) throws Exception; //lan�ar exce��o caso o element n�o esteja na tabela
+	public void remove(Integer element) throws Exception; //lançar exceção caso o element não esteja na tabela
+	public int search(Integer element) throws Exception; //lançar exceção caso o element não esteja na tabela
 	public String print();
 	
 	/*
@@ -24,3 +21,5 @@ public interface TabelaHash_IF {
 	 7: 15
 	 */
 }
+
+
