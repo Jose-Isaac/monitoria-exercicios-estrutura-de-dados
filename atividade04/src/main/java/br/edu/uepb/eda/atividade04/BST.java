@@ -53,18 +53,18 @@ public class BST implements BST_IF{
 
 	@Override
 	public Integer search(Integer element) throws Exception {
-		if(isEmpty()) {
-			return null;
-		}else {
-			if(data.equals(element)) {
+		if (isEmpty()) {
+			throw new Exception("BST vazia!");
+		} else {
+			if (this.data == element) {
 				return element;
-			}else if(element < data && esquerda != null) {
-				return esquerda.search(element);
-			}else if(element>data && direita!=null) {
-				return direita.search(element);
+			} else if (element < this.data && this.left != null) {
+				return this.left.search(element);
+			} else if (element > this.data && this.right != null) {
+				return this.right.search(element);
 			}
 		}
-		return null;
+		throw new Exception("A BST não está vazia e o elemento não foi encontrado nela!");
 	}
 
 	@Override
