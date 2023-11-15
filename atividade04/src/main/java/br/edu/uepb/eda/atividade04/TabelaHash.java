@@ -43,7 +43,7 @@ public class TabelaHash implements TabelaHash_IF{
         	 throw new Exception("Elemento não encontrado na tabela, está vazia");
      
         }  else {
-			if (hashTable[hashFunction(element)].search(element) == element) {
+			if (tabela[methash(element)].search(element) == element) {
 				return element;
 			} else {
 				throw new Exception("Elemento não encontrado na tabela!");
