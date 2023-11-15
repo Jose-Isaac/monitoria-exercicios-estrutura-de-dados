@@ -1,4 +1,4 @@
-package  br.edu.uepb.eda.atividade04;
+package atividade04;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,38 +9,38 @@ public class BST implements BST_IF{
 	protected BST esquerda;
 	protected BST direita;
 	protected BST pai;
-
+	
 	BST (){
-
+		
 	}
-
+	
 	BST (Integer data){
 		this.data = data;
 	}
-
+	
 	public boolean isEmpty() {
 		return this.data == null;
 	}
-
+	
 	@Override
 	public void insert(Integer element) {
 		if(isEmpty()) {
 			data = element;
 		}else {
 			if (element < data) {
-				if (esquerda == null) {
-					esquerda = new BST(element);
-				} else {
-					esquerda.insert(element);
-				}
-			} else if (element > data) {
-				if (direita == null) {
-					direita = new BST(element);
-				} else {
-					direita.insert(element);
-				}
-			}
-
+                if (esquerda == null) {
+                    esquerda = new BST(element);
+                } else {
+                    esquerda.insert(element);
+                }
+            } else if (element > data) {
+                if (direita == null) {
+                    direita = new BST(element);
+                } else {
+                    direita.insert(element);
+                }
+            }
+		
 		}
 	}
 
@@ -105,27 +105,27 @@ public class BST implements BST_IF{
 		}
 	}
 
-	@Override
-	public boolean isComplete() {
-		int index = 0;
-		int contador = contaux(this);
-		return isComplete(this, index, contador);
-	}
+    @Override
+    public boolean isComplete() {
+        int index = 0;
+        int contador = contaux(this);
+        return isComplete(this, index, contador);
+    }
 
-	private boolean isComplete(BST bst, int index, int count) {
-		if (bst == null) {
-			return true;
-		}
-		if (index >= count) {
-			return false;
-		}
-		return isComplete(bst.esquerda, 2 * index + 1, count) && isComplete(bst.direita, 2 * index + 2, count);
-	}
+    private boolean isComplete(BST bst, int index, int count) {
+        if (bst == null) {
+            return true;
+        }
+        if (index >= count) {
+            return false;
+        }
+        return isComplete(bst.esquerda, 2 * index + 1, count) && isComplete(bst.direita, 2 * index + 2, count);
+    }
 
-	private int contaux(BST bst) {
-		if (bst == null) {
-			return 0;
-		}
-		return 1 + contaux(bst.esquerda) + contaux(bst.direita);
-	}
+    private int contaux(BST bst) {
+        if (bst == null) {
+            return 0;
+        }
+        return 1 + contaux(bst.esquerda) + contaux(bst.direita);
+    }
 }
