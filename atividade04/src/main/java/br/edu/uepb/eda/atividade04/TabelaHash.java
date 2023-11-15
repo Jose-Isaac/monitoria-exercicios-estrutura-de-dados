@@ -44,7 +44,7 @@ public class TabelaHash implements TabelaHash_IF{
      
         } 
 
-		tabelaHash aux = tabela[methash(element)];
+		TabelaHash aux = tabela[methash(element)];
 
 		while (aux != null) {
             if (aux.data.equals(element)) {
