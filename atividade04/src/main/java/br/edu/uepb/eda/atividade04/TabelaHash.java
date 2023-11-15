@@ -30,7 +30,7 @@ public class TabelaHash implements TabelaHash_IF {
 	}
 
 	@Override
-	public int search(Integer element) throws Exception {
+	public Integer search(Integer element) throws Exception {
 		int indice = element % tamanho;
 
         if (vetor[indice].isEmpty()) throw new Exception("Elemento não encontrado na tabela");
@@ -44,7 +44,7 @@ public class TabelaHash implements TabelaHash_IF {
 		for (int i=0; i<tamanho; i++) {
 			result += i + ": ";
 			if (!vetor[i].isEmpty()) {
-				int[] subvetor = vetor[i].toArray();
+				Integer[] subvetor = vetor[i].toArray();
 				for (int j=0; j<vetor[i].size(); j++) {
 					if (j == vetor[i].size()-1) {
 						result += subvetor[j];

@@ -60,16 +60,16 @@ public class BST implements BST_IF {
 		return searchRec(root.right, element);
 	}
 
-	private int[] reverse(int[] list) {
-		int[] newList = new int[list.length];
-		for (int i = list.length - 1; i >= 0; i--) {
-			newList[i] = list[(list.length - 1) - i];
+	private Integer[] reverse(Integer[] integers) {
+		Integer[] newList = new Integer[integers.length];
+		for (int i = integers.length - 1; i >= 0; i--) {
+			newList[i] = integers[(integers.length - 1) - i];
 		}
 		return newList;
 	}
 
 	@Override
-	public int[] preOrder() {
+	public Integer[] preOrder() {
 		ListaEncadeada list = new ListaEncadeada();
 		preOrderRec(root, list);
 		return reverse(list.toArray());
@@ -84,7 +84,7 @@ public class BST implements BST_IF {
 	}
 
 	@Override
-	public int[] order() {
+	public Integer[] order() {
 		ListaEncadeada list = new ListaEncadeada();
 		inOrderRec(root, list);
 		return reverse(list.toArray());
@@ -99,7 +99,7 @@ public class BST implements BST_IF {
 	}
 
 	@Override
-	public int[] postOrder() {
+	public Integer[] postOrder() {
 		ListaEncadeada list = new ListaEncadeada();
 		postOrderRec(root, list);
 		return reverse(list.toArray());
@@ -118,7 +118,7 @@ public class BST implements BST_IF {
 		return isCompleteRec(root, 0, heightMin(root));
 	}
 
-	private int heightMin(Node root) {
+	private Integer heightMin(Node root) {
 		if (root == null) {
 			return 0;
 		} else {
