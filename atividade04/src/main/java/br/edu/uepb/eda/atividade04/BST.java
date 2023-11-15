@@ -117,7 +117,7 @@ public class BST implements BST_IF{
         if (index >= count) {
             return false;
         }
-        return isCompleteAux(bst.esquerda, 2 * index + 1, count) && isCompleteAux(bst.direita, 2 * index + 2, count);
+        return isCompleteAux(bst.esquerda, 2 * index + 1, count) && isCompleteAux(bst.direita, 2 * index + 1, count);
     }
 
     private int contaux(BST bst) {
