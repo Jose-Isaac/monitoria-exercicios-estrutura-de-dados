@@ -106,24 +106,36 @@ public class BST implements BST_IF{
 
     @Override
     public boolean isComplete() {
-        int contador = contaux(this);
-        return isCompleteAux(this, 0, contador);
+        return isCompleteAux(this, 0, contaux(this));
     }
+
+	private int contaux(BST bst) {
+		if (bst == null) {
+			return 0;
+		} else {
+			int esquerdacont = contaux(bst.left);
+			int direitacont = contaux(bst.right);
+
+			if (esquerdacont < direitacont)
+				return esquerdacont + 1;
+			else
+				return direitacont + 1;
+		}
+	}
 
     private boolean isCompleteAux(BST bst, int index, int count) {
-        if (bst == null) {
-            return true;
-        }
-        if (index >= count) {
-            return false;
-        }
-        return isCompleteAux(bst.esquerda, 2 * index + 1, count) && isCompleteAux(bst.direita, 2 * index + 1, count);
-    }
+        if (bst == null && index == 0)
+			return false;
 
-    private int contaux(BST bst) {
-        if (bst == null) {
-            return 0;
-        }
-        return 1 + contaux(bst.esquerda) + contaux(bst.direita);
-    }
+		if (bst == null)
+			return true;
+
+		if (index == (count - 1))
+			return bst.esquerda == null && bst.direita == null;
+
+		else if (index > (count - 1))
+			return false;
+
+		return isCompleteRecursive(bst.left, index + 1, count) && isCompleteRecursive(bst.right, index + 1, count);
+	}
 }
