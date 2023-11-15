@@ -1,154 +1,146 @@
 package br.edu.uepb.eda.atividade04;
 
+import java.util.ArrayList;
+
+class No {
+    int value;
+    No left;
+    No right;
+
+    public No(int value) {
+        this.value = value;
+    }
+
+}
+
 public class BST implements BST_IF {
-    private TreeNode root;
+    private No raiz;
+
+    private int tamanho;
 
     @Override
     public void insert(Integer element) {
-        root = insertRecursive(root, element);
+        raiz = insert(raiz, element);
+        tamanho++;
+
     }
 
-    private TreeNode insertRecursive(TreeNode root, Integer element) {
-        if (root == null) {
-            return new TreeNode(element);
+    private No insert(No no, int element) {
+        if (no == null) {
+            return new No(element);
+
+        } else if (element < no.value) {
+            no.left = insert(no.left, element);
+
+        } else if (element > no.value) {
+            no.right = insert(no.right, element);
         }
 
-        if (element < root.value) {
-            root.left = insertRecursive(root.left, element);
-        } else if (element > root.value) {
-            root.right = insertRecursive(root.right, element);
-        }
+        return no;
 
-        return root;
     }
 
     @Override
     public Integer search(Integer element) throws Exception {
-        TreeNode result = searchRecursive(root, element);
-        if (result == null) {
-            throw new Exception("Elemento não encontrado na árvore");
+        No no = search(raiz, element);
+
+        if (no == null) {
+            throw new Exception("Valor não encontrado");
         }
-        return result.value;
+
+        return no.value;
     }
 
-    private TreeNode searchRecursive(TreeNode root, Integer element) {
-        if (root == null || root.value.equals(element)) {
-            return root;
+    private No search(No no, int element) {
+        if (no == null || no.value == element) {
+            return no;
+
+        } else if (element < no.value) {
+            return search(no.left, element);
+
+        } else {
+            return search(no.right, element);
+
         }
 
-        if (element < root.value) {
-            return searchRecursive(root.left, element);
-        }
-
-        return searchRecursive(root.right, element);
     }
 
     @Override
     public int[] preOrder() {
-        return preOrderTraversal(root);
+        ArrayList<Integer> lista = new ArrayList<>();
+        preOrder(raiz, lista);
+        return lista.stream().mapToInt(Integer::intValue).toArray();
+
     }
 
-    private int[] preOrderTraversal(TreeNode root) {
-        if (root == null) {
-            return new int[0];
+    private void preOrder(No no, ArrayList<Integer> lista) {
+        if (no != null) {
+            lista.add(no.value);
+            preOrder(no.left, lista);
+            preOrder(no.right, lista);
         }
 
-        int[] result = new int[getSize(root)];
-        preOrderTraversal(root, result, 0);
-        return result;
-    }
-
-    private int preOrderTraversal(TreeNode root, int[] result, int index) {
-        if (root != null) {
-            result[index++] = root.value;
-            index = preOrderTraversal(root.left, result, index);
-            index = preOrderTraversal(root.right, result, index);
-        }
-        return index;
     }
 
     @Override
     public int[] order() {
-        return inOrderTraversal(root);
+        ArrayList<Integer> lista = new ArrayList<>();
+        order(raiz, lista);
+        return lista.stream().mapToInt(Integer::intValue).toArray();
     }
 
-    private int[] inOrderTraversal(TreeNode root) {
-        if (root == null) {
-            return new int[0];
+    private void order(No no, ArrayList<Integer> lista) {
+        if (no != null) {
+            order(no.left, lista);
+            lista.add(no.value);
+            order(no.right, lista);
         }
 
-        int[] result = new int[getSize(root)];
-        inOrderTraversal(root, result, 0);
-        return result;
-    }
-
-    private int inOrderTraversal(TreeNode root, int[] result, int index) {
-        if (root != null) {
-            index = inOrderTraversal(root.left, result, index);
-            result[index++] = root.value;
-            index = inOrderTraversal(root.right, result, index);
-        }
-        return index;
     }
 
     @Override
     public int[] postOrder() {
-        return postOrderTraversal(root);
+        ArrayList<Integer> lista = new ArrayList<>();
+        postOrder(raiz, lista);
+        return lista.stream().mapToInt(Integer::intValue).toArray();
+
     }
 
-    private int[] postOrderTraversal(TreeNode root) {
-        if (root == null) {
-            return new int[0];
+    private void postOrder(No no, ArrayList<Integer> lista) {
+        if (no != null) {
+            postOrder(no.left, lista);
+            postOrder(no.right, lista);
+            lista.add(no.value);
+
         }
 
-        int[] result = new int[getSize(root)];
-        postOrderTraversal(root, result, 0);
-        return result;
-    }
-
-    private int postOrderTraversal(TreeNode root, int[] result, int index) {
-        if (root != null) {
-            index = postOrderTraversal(root.left, result, index);
-            index = postOrderTraversal(root.right, result, index);
-            result[index++] = root.value;
-        }
-        return index;
     }
 
     @Override
     public boolean isComplete() {
-        return isComplete(root, 0, getSize(root));
+        return isCompleteRec(raiz, 0, countNodes(raiz));
+
     }
 
-    private boolean isComplete(TreeNode root, int index, int size) {
-        if (root == null) {
+    private boolean isCompleteRec(No raiz, int indice, int contador) {
+        if (raiz == null) {
             return true;
         }
 
-        if (index >= size) {
+        if (indice >= contador) {
             return false;
         }
 
-        return isComplete(root.left, 2 * index + 1, size) && isComplete(root.right, 2 * index + 2, size);
+        return isCompleteRec(raiz.left, 2 * indice + 1, contador) &&
+                isCompleteRec(raiz.right, 2 * indice + 2, contador);
     }
 
-    private int getSize(TreeNode root) {
-        if (root == null) {
+    private int countNodes(No raiz) {
+        if (raiz == null) {
             return 0;
         }
 
-        return 1 + getSize(root.left) + getSize(root.right);
+        return 1 + countNodes(raiz.left) + countNodes(raiz.right);
     }
 
-    private static class TreeNode {
-        private Integer value;
-        private TreeNode left;
-        private TreeNode right;
-
-        public TreeNode(Integer value) {
-            this.value = value;
-            this.left = null;
-            this.right = null;
-        }
-    }
 }
