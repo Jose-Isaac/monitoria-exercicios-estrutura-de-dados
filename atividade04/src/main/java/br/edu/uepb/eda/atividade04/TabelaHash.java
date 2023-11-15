@@ -42,15 +42,15 @@ public class TabelaHash implements TabelaHash_IF{
         if (tabela[methash(element)].isEmpty()) {
         	 throw new Exception("Elemento não encontrado na tabela, está vazia");
      
-        } else {
-        	
-        	if(tabela[methash(element)].search(element).equals(element)) {
-        		return element;
-        	}
-        	else {
-        		throw new Exception("Elemento não encontrado");
-        	}
-           
+        } 
+
+		tabelaHash aux = tabela[methash(element)];
+
+		while (aux != null) {
+            if (aux.data.equals(element)) {
+                return element; 
+            }
+            atual = atual.prox;
         }
     }
     @Override
