@@ -47,10 +47,10 @@ public class BST implements BST_IF {
     }
 
     @Override
-    public int[] preOrder() {
+    public Integer[] preOrder() {
         List<Integer> resultado = new ArrayList<>();
         preOrderRec(resultado);
-        return resultado.stream().mapToInt(Integer::intValue).toArray();
+        return resultado.toArray(new Integer[0]);
     }
 
     private void preOrderRec(List<Integer> resultado) {
@@ -66,10 +66,10 @@ public class BST implements BST_IF {
     }
 
     @Override
-    public int[] order() {
+    public Integer[] order() {
         List<Integer> resultado = new ArrayList<>();
         orderRec(resultado);
-        return resultado.stream().mapToInt(Integer::intValue).toArray();
+        return resultado.toArray(new Integer[0]);
     }
 
     private void orderRec(List<Integer> resultado) {
@@ -85,10 +85,10 @@ public class BST implements BST_IF {
     }
 
     @Override
-    public int[] postOrder() {
+    public Integer[] postOrder() {
         List<Integer> resultado = new ArrayList<>();
         postOrderRec(resultado);
-        return resultado.stream().mapToInt(Integer::intValue).toArray();
+        return resultado.toArray(new Integer[0]);
     }
 
     private void postOrderRec(List<Integer> resultado) {
@@ -132,4 +132,4 @@ public class BST implements BST_IF {
         }
         return contador;
     }
-}
+}}

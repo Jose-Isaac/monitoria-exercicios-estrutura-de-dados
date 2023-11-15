@@ -27,7 +27,7 @@ public class Projeto {
                     System.out.println("Mátricula Adicionada!");
                     break;
                 case 2:
-                    System.out.print("Número da Mátricula que deseja adicionar: ");
+                    System.out.print("Número da Mátricula que deseja buscar: ");
                     int matriculaBuscar = scanner.nextInt();
                     scanner.nextLine();
                     try {
@@ -38,7 +38,7 @@ public class Projeto {
                     }
                     break;
                 case 3:
-                    int[] matriculasInOrder = matriculaTree.order();
+                    Integer[] matriculasInOrder = matriculaTree.order();
                     System.out.println("\n--- MÁTRICULAS ---");
                     for (int matriculaLista : matriculasInOrder) {
                         System.out.println("Mátricula: " + matriculaLista);
