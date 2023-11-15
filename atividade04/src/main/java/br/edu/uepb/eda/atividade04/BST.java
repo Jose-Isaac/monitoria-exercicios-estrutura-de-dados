@@ -115,35 +115,30 @@ public class BST implements BST_IF {
 		if (bst == null) {
 			return 0;
 		} else {
-			int leftHeight = heightMin(this.left);
-			int rightHeight = heightMin(this.right);
+			int leftHeight = heightMin(bst.left);
+			int rightHeight = heightMin(bst.right);
 
-			if (leftHeight < rightHeight) {
+			if (leftHeight < rightHeight)
 				return leftHeight + 1;
-			} else {
+			else
 				return rightHeight + 1;
-			}
 		}
 	}
 
-	private boolean isCompleteRecursive(BST bst, int indexNode, int heightMin) {
-		if (bst == null && indexNode == 0) {
+	private boolean isCompleteRecursive(BST bst, int index, int heightMin) {
+		if (bst == null && index == 0)
 			return false;
-		}
 
-		if (bst == null) {
+		if (bst == null)
 			return true;
-		}
-		
-		if (indexNode == (heightMin - 1)) {
+
+		if (index == (heightMin - 1))
 			return bst.left == null && bst.right == null;
-		}
-			
-		else if (indexNode > (heightMin - 1)) {
+
+		else if (index > (heightMin - 1))
 			return false;
-		}
-			
-		return isCompleteRecursive(bst.left, indexNode + 1, heightMin) && isCompleteRecursive(bst.right, indexNode + 1, heightMin);
+
+		return isCompleteRecursive(bst.left, index + 1, heightMin) && isCompleteRecursive(bst.right, index + 1, heightMin);
 	}
 	
 	private int[] byArrayListToVector(ArrayList<Integer> list) {
@@ -153,8 +148,4 @@ public class BST implements BST_IF {
 		}
 		return vector;
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 350790055d5a880f6f7bcc28ca475c3f3302bbd0
