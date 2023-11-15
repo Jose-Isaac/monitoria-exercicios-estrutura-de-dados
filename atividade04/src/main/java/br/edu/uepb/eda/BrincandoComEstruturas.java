@@ -28,7 +28,9 @@ public class BrincandoComEstruturas {
 
         //OBS.: Espera-se que nenhum print mostre 'false' na tela!
         //é usada para encontrar o maior número na lista que seja menor do que o valor de referência (neste caso, 9).
-        BST_IF bst = new BST(); // Altere para a implementação concreta MinhaBST
+        BST_IF minhaArvore = new BST(); // Altere para a implementação concreta MinhaBST
+
+        TabelaHash_IF minhaTabelaHash = new TabelaHash(8);
 
         int[] numeros = gerarListaAleatoria();
 

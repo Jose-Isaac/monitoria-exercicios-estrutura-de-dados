@@ -6,7 +6,7 @@ public class TabelaHash implements TabelaHash_IF{
 
 
 
-    private  int tam;
+    private int tam;
     private ListaEncadeada[] tabela;
 
     public TabelaHash(int tam) {
