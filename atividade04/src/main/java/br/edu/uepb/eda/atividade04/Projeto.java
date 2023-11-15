@@ -1,4 +1,4 @@
-package atividade04;
+package br.edu.uepb.eda.atividade04;
 import java.util.Scanner;
 public class Projeto {
 

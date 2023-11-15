@@ -1,10 +1,7 @@
-package atividade04;
+package br.edu.uepb.eda.atividade04;
 import java.util.LinkedList;
 
 public class TabelaHash implements TabelaHash_IF{
-
-
-	
 	private  int tam; 
     private ListaEncadeada[] tabela; 
 
