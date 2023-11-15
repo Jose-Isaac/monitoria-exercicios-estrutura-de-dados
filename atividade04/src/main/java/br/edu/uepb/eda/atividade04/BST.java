@@ -68,13 +68,13 @@ public class BST implements BST_IF{
 	}
 
 	@Override
-	public int[] preOrder() {
-		List<int> result = new ArrayList<>();
+	public Integer[] preOrder() {
+		List<Integer> result = new ArrayList<>();
 		preOrderaux(this,result);
-		return result.toArray([0]);
+		return result.toArray(new Integer[0]);
 	}
 
-	private void preOrderaux(BST bst, List<int> result) {
+	private void preOrderaux(BST bst, List<Integer> result) {
 		if(bst != null) {
 			result.add(bst.data);
 			preOrderaux(bst.esquerda,result);
@@ -83,13 +83,13 @@ public class BST implements BST_IF{
 	}
 
 	@Override
-	public int[] order() {
-		List<int> result = new ArrayList<>();
+	public Integer[] order() {
+		List<Integer> result = new ArrayList<>();
 		orderaux(this,result);
-		return result.toArray([0]);
+		return result.toArray(new Integer[0]);
 	}
 
-	private void orderaux(BST bst, List<int> result) {
+	private void orderaux(BST bst, List<Integer> result) {
 		if(bst != null) {
 			orderaux(bst.esquerda,result);
 			result.add(bst.data);
@@ -98,13 +98,13 @@ public class BST implements BST_IF{
 	}
 
 	@Override
-	public int[] postOrder() {
-		List<int> result = new ArrayList<>();
+	public Integer[] postOrder() {
+		List<Integer> result = new ArrayList<>();
 		postOrderaux(this,result);
-		return result.toArray([0]);
+		return result.toArray(new Integer[0]);
 	}
 
-	private void postOrderaux(BST bst, List<int> result) {
+	private void postOrderaux(BST bst, List<Integer> result) {
 		if(bst != null) {
 			postOrderaux(bst.esquerda,result);
 			postOrderaux(bst.direita,result);
