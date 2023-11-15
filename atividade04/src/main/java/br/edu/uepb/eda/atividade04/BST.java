@@ -113,8 +113,8 @@ public class BST implements BST_IF{
 		if (bst == null) {
 			return 0;
 		} else {
-			int esquerdacont = contaux(bst.left);
-			int direitacont = contaux(bst.right);
+			int esquerdacont = contaux(bst.esquerda);
+			int direitacont = contaux(bst.direita);
 
 			if (esquerdacont < direitacont)
 				return esquerdacont + 1;
