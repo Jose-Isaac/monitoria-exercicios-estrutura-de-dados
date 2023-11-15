@@ -11,7 +11,10 @@ public class BST implements BST_IF{
 	protected BST pai;
 	
 	BST (){
-		
+		this.data = null;
+		this.esquerda=null;
+		this.direita=null;
+		this.pai=null;
 	}
 	
 	BST (Integer data){
