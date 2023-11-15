@@ -136,6 +136,6 @@ public class BST implements BST_IF{
 		else if (index > (count - 1))
 			return false;
 
-		return isCompleteRecursive(bst.left, index + 1, count) && isCompleteRecursive(bst.right, index + 1, count);
+		return isCompleteAux(bst.esquerda, index + 1, count) && isCompleteAux(bst.direita, index + 1, count);
 	}
 }
