@@ -17,10 +17,6 @@ public class BST implements BST_IF{
 		this.pai=null;
 	}
 	
-	BST (Integer data){
-		this.data = data;
-	}
-	
 	public boolean isEmpty() {
 		return this.data == null;
 	}
@@ -32,16 +28,16 @@ public class BST implements BST_IF{
 		}else {
 			if (element < data) {
                 if (esquerda == null) {
-                    esquerda = new BST(element);
-                } else {
-                    esquerda.insert(element);
-                }
+                    esquerda = new BST();
+                } 
+				esquerda.insert(element);
+                
             } else if (element > data) {
                 if (direita == null) {
-                    direita = new BST(element);
-                } else {
-                    direita.insert(element);
-                }
+                    direita = new BST();
+                } 
+                direita.insert(element);
+                
             }
 		
 		}
