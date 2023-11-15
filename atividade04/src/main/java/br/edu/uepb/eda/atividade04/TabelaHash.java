@@ -4,13 +4,17 @@ import java.util.LinkedList;
 
 public class TabelaHash implements TabelaHash_IF{
 
-    private static final int tam = 8;
-    private LinkedList<Integer>[] tabela;
 
-    public TabelaHash(Integer i) {
-        this.tabela = new LinkedList[tam];
-        for (int j = 0; j < tam; j++) {
-            tabela[j] = new LinkedList<>();
+
+    private  int tam;
+    private ListaEncadeada[] tabela;
+
+    public TabelaHash(int tam) {
+        this.tam = tam;
+        this.tabela = new ListaEncadeada[this.tam];
+
+        for (int i = 0; i < tam; i++) {
+            this.tabela[i] = new ListaEncadeada();
         }
     }
 
@@ -20,16 +24,17 @@ public class TabelaHash implements TabelaHash_IF{
 
     @Override
     public void insert(Integer element) {
-        int index = methash(element);
-        tabela[index].addFirst(element);
+
+        tabela[methash(element)].insert(element);
     }
     @Override
     public void remove(Integer element) throws Exception {
-        int index = methash(element);
-        if (tabela[index] == null) {
-            throw new Exception("Elemento não encontrado na tabela");
+
+        if (search(element) == element) {
+            tabela[methash(element)].remove(element);
+
         }
-        if (!tabela[index].remove(element)) {
+        else {
             throw new Exception("Elemento não encontrado na tabela");
         }
     }
@@ -37,27 +42,39 @@ public class TabelaHash implements TabelaHash_IF{
     @Override
 
     public Integer search(Integer element) throws Exception {
-        int index = methash(element);
-        if (tabela[index].contains(element)) {
-            return element;
+
+        if (tabela[methash(element)].isEmpty()) {
+            throw new Exception("Elemento não encontrado na tabela, está vazia");
+
         } else {
-            throw new Exception("Elemento não encontrado na tabela");
+
+            if(tabela[methash(element)].search(element) == element) {
+                return element;
+            }
+            else {
+                throw new Exception("Elemento não encontrado");
+            }
+
         }
     }
     @Override
     public String print() {
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < tam; i++) {
-            result.append(i).append(": ");
+        String resultado = new String();
+        for (int i=0; i<tam; i++) {
+            resultado += i + ": ";
             if (!tabela[i].isEmpty()) {
-                for (Integer elem : tabela[i]) {
-                    result.append(elem).append(", ");
+                Integer[] t = tabela[i].toArray();
+                for (int j=0; j<tabela[i].size(); j++) {
+                    if (j == tabela[i].size()-1) {
+                        resultado += t[j];
+                    } else {
+                        resultado += t[j] + ", ";
+                    }
                 }
-                result.setLength(result.length() - 2);
             }
-            result.append("\n");
+            resultado += "\n";
         }
-        return result.toString();
+        return resultado;
     }
 
 }

@@ -8,11 +8,13 @@ public class BST implements BST_IF{
 	protected Integer data;
 	protected BST esquerda;
 	protected BST direita;
-	protected BST parametro;
+	protected BST pai;
 
+	BST (){
 
+	}
 
-	public BST (Integer data){
+	BST (Integer data){
 		this.data = data;
 	}
 
