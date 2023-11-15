@@ -7,7 +7,7 @@ public class TabelaHash implements TabelaHash_IF{
 
     public TabelaHash(int tam) {
 		this.tam = tam;
-		this.tabela = new ListaEncadeada[this.tam];
+		this.tabela = new ListaEncadeada[tam];
 
 		for (int i = 0; i < tam; i++) {
             this.tabela[i] = new ListaEncadeada();
@@ -30,6 +30,10 @@ public class TabelaHash implements TabelaHash_IF{
         	tabela[methash(element)].remove(element); 
             
         }
+		else if(search(element).isEmpty()){
+			throw new Exception("Está vazia.");
+		}
+		
         else {
         	throw new Exception("Elemento não encontrado na tabela");
         }
