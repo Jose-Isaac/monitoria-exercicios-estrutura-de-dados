@@ -57,31 +57,31 @@ public class Test_BST {
 		assertArrayEquals(expectedResult, b.postOrder());
 	}
 
-	// @Test
-	// public void testIsComplete() {
-	// b.insert(10);
-	// b.insert(5);
-	// b.insert(20);
-	// b.insert(15);
-	// b.insert(25);
+	@Test
+	public void testIsComplete() {
+		b.insert(10);
+		b.insert(5);
+		b.insert(20);
+		b.insert(15);
+		b.insert(25);
 
-	// assertFalse(b.isComplete());
+		assertFalse(b.isComplete());
 
-	// b2.insert(12);
-	// b2.insert(5);
-	// b2.insert(2);
-	// b2.insert(27);
+		b2.insert(12);
+		b2.insert(5);
+		b2.insert(2);
+		b2.insert(27);
 
-	// assertTrue(b2.isComplete());
+		assertTrue(b2.isComplete());
 
-	// b3.insert(70);
-	// b3.insert(50);
-	// b3.insert(30);
-	// b3.insert(60);
-	// b3.insert(89);
+		b3.insert(70);
+		b3.insert(50);
+		b3.insert(30);
+		b3.insert(60);
+		b3.insert(89);
 
-	// assertTrue(b3.isComplete());
-	// }
+		assertTrue(b3.isComplete());
+	}
 
 	@Test(expected = Exception.class)
 	public void testSearchException() throws Exception {
