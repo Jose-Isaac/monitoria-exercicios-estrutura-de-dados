@@ -1,4 +1,4 @@
-package atividade04;
+package br.edu.uepb.eda.atividade04;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,12 +10,11 @@ public class BST implements BST_IF{
 	protected BST direita;
 	protected BST pai;
 	
-	BST (){
-		
-	}
-	
-	BST (Integer data){
-		this.data = data;
+	public BST (){
+		this.data = null;
+		this.esquerda=null;
+		this.direita=null;
+		this.pai=null;
 	}
 	
 	public boolean isEmpty() {
@@ -29,16 +28,16 @@ public class BST implements BST_IF{
 		}else {
 			if (element < data) {
                 if (esquerda == null) {
-                    esquerda = new BST(element);
-                } else {
-                    esquerda.insert(element);
-                }
+                    esquerda = new BST();
+                } 
+				esquerda.insert(element);
+                
             } else if (element > data) {
                 if (direita == null) {
-                    direita = new BST(element);
-                } else {
-                    direita.insert(element);
-                }
+                    direita = new BST();
+                } 
+                direita.insert(element);
+                
             }
 		
 		}
@@ -107,19 +106,18 @@ public class BST implements BST_IF{
 
     @Override
     public boolean isComplete() {
-        int index = 0;
         int contador = contaux(this);
-        return isComplete(this, index, contador);
+        return isCompleteAux(this, 0, contador);
     }
 
-    private boolean isComplete(BST bst, int index, int count) {
+    private boolean isCompleteAux(BST bst, int index, int count) {
         if (bst == null) {
             return true;
         }
         if (index >= count) {
             return false;
         }
-        return isComplete(bst.esquerda, 2 * index + 1, count) && isComplete(bst.direita, 2 * index + 2, count);
+        return isCompleteAux(bst.esquerda, 2 * index + 1, count) && isCompleteAux(bst.direita, 2 * index + 2, count);
     }
 
     private int contaux(BST bst) {

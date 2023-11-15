@@ -1,29 +1,25 @@
-package atividade04;
+package br.edu.uepb.eda.atividade04;
 import java.util.LinkedList;
 
 public class TabelaHash implements TabelaHash_IF{
-
-
-	
-	private  int tam; 
-    private ListaEncadeada[] tabela; 
+	protected  int tam; 
+    protected ListaEncadeada[] tabela; 
 
     public TabelaHash(int tam) {
 		this.tam = tam;
-		this.tabela = new ListaEncadeada[this.tam];
+		this.tabela = new ListaEncadeada[tam];
 
 		for (int i = 0; i < tam; i++) {
             this.tabela[i] = new ListaEncadeada();
         }
 	}
 
-    private int methash(Integer element) {
+    private Integer methash(Integer element) {
         return element % tam; 
     }
 
     @Override
     public void insert(Integer element) {
-
         tabela[methash(element)].insert(element); 
     }
     @Override
@@ -45,16 +41,14 @@ public class TabelaHash implements TabelaHash_IF{
         if (tabela[methash(element)].isEmpty()) {
         	 throw new Exception("Elemento não encontrado na tabela, está vazia");
      
-        } else {
-        	
-        	if(tabela[methash(element)].search(element) == element) {
-        		return element;
-        	}
-        	else {
-        		throw new Exception("Elemento não encontrado");
-        	}
-           
-        }
+        }  else {
+			if (tabela[methash(element)].search(element) == element) {
+				return element;
+			} else {
+				throw new Exception("Elemento não encontrado na tabela!");
+			}
+		}
+		
     }
     @Override
     public String print() {
