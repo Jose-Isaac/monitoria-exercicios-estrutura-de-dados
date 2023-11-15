@@ -30,10 +30,6 @@ public class TabelaHash implements TabelaHash_IF{
         	tabela[methash(element)].remove(element); 
             
         }
-		else if(search(element).isEmpty()){
-			throw new Exception("Está vazia.");
-		}
-		
         else {
         	throw new Exception("Elemento não encontrado na tabela");
         }
@@ -46,8 +42,14 @@ public class TabelaHash implements TabelaHash_IF{
         if (tabela[methash(element)].isEmpty()) {
         	 throw new Exception("Elemento não encontrado na tabela, está vazia");
      
-        } 
-		return tabela[methash(element)].search(element);
+        }  else {
+			if (hashTable[hashFunction(element)].search(element) == element) {
+				return element;
+			} else {
+				throw new Exception("Elemento não encontrado na tabela!");
+			}
+		}
+		
     }
     @Override
     public String print() {
