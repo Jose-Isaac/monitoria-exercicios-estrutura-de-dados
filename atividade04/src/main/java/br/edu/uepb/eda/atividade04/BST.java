@@ -105,7 +105,7 @@ public class BST implements BST_IF {
 			result.add(bst.data);
 		}
 	}
-
+	
 	@Override
 	public boolean isComplete() {
 		int numberNodes = countNodes(this);
@@ -121,7 +121,7 @@ public class BST implements BST_IF {
 			return false;
 		}
 		
-		return isComplete(bst.left, 2*indexNode+1 ,numberNodes) && isComplete(bst.right, 2*indexNode+2 ,numberNodes);
+		return isComplete(bst.left, 2*indexNode+1 ,numberNodes) && isComplete(bst.right, 2*indexNode+1 ,numberNodes);
 	}
 
 	private int countNodes(BST bst) {
@@ -138,8 +138,4 @@ public class BST implements BST_IF {
 		}
 		return vector;
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> e2493261838e59ffac58113657e335a5d5dbe6b4
