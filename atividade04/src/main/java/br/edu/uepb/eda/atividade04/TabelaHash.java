@@ -30,7 +30,7 @@ public class TabelaHash implements TabelaHash_IF {
     }
 
     @Override
-    public int search(Integer element) throws Exception {
+    public Integer search(Integer element) throws Exception {
         int indice = calcularIndice(element);
         List<Integer> lista = tabela.get(indice);
         if (lista.contains(element)) {

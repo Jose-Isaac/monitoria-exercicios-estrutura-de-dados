@@ -71,13 +71,13 @@ public class BST implements BST_IF {
     // Percursos realizados de maneira recursiva (Pré-ordem, pós-ordem, em-ordem)
 
     // PRÉ-ORDEM
-    public int[] preOrder() {
-        int[] resultado = new int[size()];
+    public Integer[] preOrder() {
+        Integer[] resultado = new Integer[size()];
         preOrderRec(this.raiz, resultado, 0);
         return resultado;
     }
 
-    private int preOrderRec(No raiz, int[] array, int index) {
+    private int preOrderRec(No raiz, Integer[] array, int index) {
         if (raiz != null) {
             array[index++] = raiz.getDado();
             index = preOrderRec(raiz.getEsq(), array, index);
@@ -87,13 +87,13 @@ public class BST implements BST_IF {
     }
 
     // EM-ORDEM
-    public int[] order() {
-        int[] resultado = new int[size()];
+    public Integer[] order() {
+        Integer[] resultado = new Integer[size()];
         orderRec(this.raiz, resultado, 0);
         return resultado;
     }
 
-    private int orderRec(No raiz, int[] array, int index) {
+    private int orderRec(No raiz, Integer[] array, int index) {
         if (raiz != null) {
             index = orderRec(raiz.getEsq(), array, index);
             array[index++] = raiz.getDado();
@@ -103,13 +103,13 @@ public class BST implements BST_IF {
     }
 
     // PÓS-ORDEM
-    public int[] postOrder() {
-        int[] resultado = new int[size()];
+    public Integer[] postOrder() {
+        Integer[] resultado = new Integer[size()];
         postOrderRec(this.raiz, resultado, 0);
         return resultado;
     }
 
-    private int postOrderRec(No raiz, int[] array, int index) {
+    private int postOrderRec(No raiz, Integer[] array, int index) {
         if (raiz != null) {
             index = postOrderRec(raiz.getEsq(), array, index);
             index = postOrderRec(raiz.getDir(), array, index);
