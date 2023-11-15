@@ -65,7 +65,7 @@ public class BST implements BST_IF {
 	public int[] preOrder() {
 		ArrayList<Integer> result = new ArrayList<>();
 		preOrderRoute(this, result);
-		return result.stream().mapToInt(Integer::intValue).toArray(); //método usado para converter a ArrayList do tipo Integer num vetor de números inteiros
+		return byArrayListToVector(result);
 	}
 
 	private void preOrderRoute(BST bst, ArrayList<Integer> result) {
@@ -80,7 +80,7 @@ public class BST implements BST_IF {
 	public int[] order() {
 		ArrayList<Integer> result = new ArrayList<>();
 		orderRoute(this, result);
-		return result.stream().mapToInt(Integer::intValue).toArray();
+		return byArrayListToVector(result);
 	}
 	
 	private void orderRoute(BST bst, ArrayList<Integer> result) {
@@ -95,7 +95,7 @@ public class BST implements BST_IF {
 	public int[] postOrder() {
 		ArrayList<Integer> result = new ArrayList<>();
 		postOrderRoute(this, result);
-		return result.stream().mapToInt(Integer::intValue).toArray();
+		return byArrayListToVector(result);
 	}
 	
 	private void postOrderRoute(BST bst, ArrayList<Integer> result) {
@@ -129,5 +129,13 @@ public class BST implements BST_IF {
 			return 0;
 		}
 		return 1 + countNodes(bst.left) + countNodes(bst.right);
+	}
+	
+	private int[] byArrayListToVector(ArrayList<Integer> list) {
+		int vector[] = new int[list.size()];
+		for (int i = 0; i < list.size(); i++) {
+			vector[i] = list.get(i);
+		}
+		return vector;
 	}
 }
