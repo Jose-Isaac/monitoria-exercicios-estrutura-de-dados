@@ -8,16 +8,9 @@ public class BST implements BST_IF {
 	protected BST right;
 	protected BST parent;
 	
-	public BST() {
-		this.data = null;
-		this.left = null;
-		this.right = null;
-		this.parent = null;
-	}
+	public BST() { this.data = null; this.left = null; this.right = null; this.parent = null; }
 	
-	public boolean isEmpty() {
-		return this.data==null;
-	}
+	public boolean isEmpty() { return this.data == null; }
 
 	@Override
 	public void insert(Integer element) {
