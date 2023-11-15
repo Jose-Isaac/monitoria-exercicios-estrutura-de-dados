@@ -1,4 +1,4 @@
-package br.edu.uepb.eda.atividade04;
+package atividade04;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,8 +100,8 @@ public class BST implements BST_IF {
 	
 	private void postOrderRoute(BST bst, ArrayList<Integer> result) {
 		if(bst != null) {
-			orderRoute(bst.left,result);
-			orderRoute(bst.right,result);
+			postOrderRoute(bst.left,result);
+			postOrderRoute(bst.right,result);
 			result.add(bst.data);
 		}
 	}
@@ -130,7 +130,6 @@ public class BST implements BST_IF {
 		}
 		return 1 + countNodes(bst.left) + countNodes(bst.right);
 	}
-<<<<<<< HEAD
 	
 	private int[] byArrayListToVector(ArrayList<Integer> list) {
 		int vector[] = new int[list.size()];
@@ -140,6 +139,3 @@ public class BST implements BST_IF {
 		return vector;
 	}
 }
-=======
-}
->>>>>>> 45a7b5f3d8f4a50bc2111e2faa7634a0f78a02d3
