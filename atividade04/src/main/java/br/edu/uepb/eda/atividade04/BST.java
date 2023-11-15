@@ -10,7 +10,7 @@ public class BST implements BST_IF{
 	protected BST direita;
 	protected BST pai;
 	
-	BST (){
+	public BST (){
 		this.data = null;
 		this.esquerda=null;
 		this.direita=null;
