@@ -58,12 +58,11 @@ public class BST implements BST_IF {
     }
 
     @Override
-    public int[] preOrder() {
+    public Integer[] preOrder() {
         List<Integer> result = new ArrayList<>();
         preOrderTraversal(this, result);
         
-        int[] arrayResult = result.stream().mapToInt(Integer::intValue).toArray();
-        return arrayResult;
+        return result.toArray(new Integer[0]);
     }
 
     private void preOrderTraversal(BST node, List<Integer> result) {
@@ -75,12 +74,11 @@ public class BST implements BST_IF {
     }
 
     @Override
-    public int[] order() {
+    public Integer[] order() {
         List<Integer> result = new ArrayList<>();
         orderTraversal(this, result);
         
-        int[] arrayResult = result.stream().mapToInt(Integer::intValue).toArray();
-        return arrayResult;
+        return result.toArray(new Integer[0]);
     }
 
     private void orderTraversal(BST node, List<Integer> result) {
@@ -92,12 +90,11 @@ public class BST implements BST_IF {
     }
 
     @Override
-    public int[] postOrder() {
+    public Integer[] postOrder() {
         List<Integer> result = new ArrayList<>();
         postOrderTraversal(this, result);
         
-        int[] arrayResult = result.stream().mapToInt(Integer::intValue).toArray();
-        return arrayResult;
+        return result.toArray(new Integer[0]);
     }
 
     private void postOrderTraversal(BST node, List<Integer> result) {

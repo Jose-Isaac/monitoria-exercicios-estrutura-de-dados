@@ -27,21 +27,20 @@ public class TabelaHash implements TabelaHash_IF {
     @Override
     public void remove(Integer element) throws Exception {
         int hashValue = hash(element);
+        if(tabela[hashValue].search(element) == null){
+            throw new Exception("Element not found");
+        }
         tabela[hashValue].remove(element);
     }
 
     @Override
-    public int search(Integer element) throws Exception {
-        int i = 0;
-        int hashValue;
-        do {
-            hashValue = hash(element);
-            Integer result = tabela[hashValue].search(element);
-            if (result != null) {
-                return result.intValue();
-            }
-            i++;
-        } while (tabela[hashValue].isNil() || i < m);
+    public Integer search(Integer element) throws Exception {
+    int hashValue;
+        hashValue = hash(element);
+        Integer result = tabela[hashValue].search(element);
+        if (result != null) {
+            return result;
+        }
 
         throw new Exception("Element not found");
     }
