@@ -9,7 +9,14 @@ public class BST implements BST_IF{
 	protected BST esquerda;
 	protected BST direita;
 	protected BST pai;
-	
+
+
+	public BST (Integer dado){
+		this.data = dado;
+		this.esquerda=null;
+		this.direita=null;
+		this.pai=null;
+	}
 	public BST (){
 		this.data = null;
 		this.esquerda=null;
@@ -18,6 +25,7 @@ public class BST implements BST_IF{
 	}
 	
 	public boolean isEmpty() {
+
 		return this.data == null;
 	}
 	
