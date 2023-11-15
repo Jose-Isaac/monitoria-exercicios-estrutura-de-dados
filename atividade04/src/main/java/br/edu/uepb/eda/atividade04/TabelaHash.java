@@ -44,7 +44,7 @@ public class TabelaHash implements TabelaHash_IF{
      
         } else {
         	
-        	if(tabela[methash(element)].search(element) == element) {
+        	if(tabela[methash(element)].search(element).equals(element)) {
         		return element;
         	}
         	else {
