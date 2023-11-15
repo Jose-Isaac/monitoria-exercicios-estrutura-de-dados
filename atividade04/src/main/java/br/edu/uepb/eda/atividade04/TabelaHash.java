@@ -14,13 +14,12 @@ public class TabelaHash implements TabelaHash_IF{
         }
 	}
 
-    private int methash(Integer element) {
+    private Integer methash(Integer element) {
         return element % tam; 
     }
 
     @Override
     public void insert(Integer element) {
-
         tabela[methash(element)].insert(element); 
     }
     @Override
