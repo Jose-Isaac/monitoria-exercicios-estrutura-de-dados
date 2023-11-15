@@ -65,7 +65,7 @@ public class Test_BST {
 		b.insert(15);
 		b.insert(25);
 
-		assertTrue(!b.isComplete());
+		assertFalse(b.isComplete());
 
 		b2.insert(12);
 		b2.insert(5);
