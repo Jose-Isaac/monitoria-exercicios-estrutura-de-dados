@@ -130,7 +130,6 @@ public class BST implements BST_IF {
 		}
 		return 1 + countNodes(bst.left) + countNodes(bst.right);
 	}
-<<<<<<< HEAD
 	
 	private int[] byArrayListToVector(ArrayList<Integer> list) {
 		int vector[] = new int[list.size()];
@@ -140,6 +139,3 @@ public class BST implements BST_IF {
 		return vector;
 	}
 }
-=======
-}
->>>>>>> 45a7b5f3d8f4a50bc2111e2faa7634a0f78a02d3
