@@ -51,12 +51,12 @@ public class BST implements BST_IF {
     }
 
     @Override
-    public int[] preOrder() {
+    public Integer[] preOrder() {
         ArrayList<Integer> elements = new ArrayList<Integer>();
 
         preOrder(this, elements);
 
-        int[] elementsInt = arrayListToIntArray(elements);
+        Integer[] elementsInt = arrayListToIntArray(elements);
         return elementsInt;
     }
 
@@ -69,12 +69,12 @@ public class BST implements BST_IF {
     }
 
     @Override
-    public int[] order() {
+    public Integer[] order() {
         ArrayList<Integer> elements = new ArrayList<Integer>();
 
         order(this, elements);
 
-        int[] elementsInt = arrayListToIntArray(elements);
+        Integer[] elementsInt = arrayListToIntArray(elements);
         return elementsInt;
     }
 
@@ -87,12 +87,12 @@ public class BST implements BST_IF {
     }
 
     @Override
-    public int[] postOrder() {
+    public Integer[] postOrder() {
         ArrayList<Integer> elements = new ArrayList<Integer>();
 
         postOrder(this, elements);
 
-        int[] elementsInt = arrayListToIntArray(elements);
+        Integer[] elementsInt = arrayListToIntArray(elements);
         return elementsInt;
     }
 
@@ -126,8 +126,8 @@ public class BST implements BST_IF {
         return (1 + getHeight(bst.left) + getHeight(bst.right));
     }
 
-    private static int[] arrayListToIntArray(ArrayList<Integer> arrayList) {
-        int[] elementsInt = new int[arrayList.size()];
+    private static Integer[] arrayListToIntArray(ArrayList<Integer> arrayList) {
+        Integer[] elementsInt = new Integer[arrayList.size()];
         for (int i = 0; i < elementsInt.length; i++) {
             elementsInt[i] = arrayList.get(i);
         }
