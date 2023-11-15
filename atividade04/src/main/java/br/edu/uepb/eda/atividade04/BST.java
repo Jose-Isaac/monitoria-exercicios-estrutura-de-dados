@@ -1,4 +1,4 @@
-
+package br.edu.uepb.eda.atividade04;
 
 public class BST implements BST_IF {
     protected No raiz;

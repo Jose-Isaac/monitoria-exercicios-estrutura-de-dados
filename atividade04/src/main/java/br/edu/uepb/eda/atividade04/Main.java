@@ -1,6 +1,5 @@
-package br.edu.uepb.eda;
+package br.edu.uepb.eda.atividade04;
 
-import br.edu.uepb.eda.atividade04.*;
 
 import java.util.Arrays;
 
@@ -49,7 +48,7 @@ public class Main {
         System.out.println(Arrays.toString(minhaArvore.postOrder()).equals(Arrays.toString(new int[]{1,3,2,5,7,6,4,9,11,10,13,15,14,12,8})));
         System.out.println();
 
-        System.out.println("Brincando com TabelaHash...");
+        System.out.println("Brincando com TabelaHash_IF.TabelaHash...");
         TabelaHash_IF minhaTabelaHash = new TabelaHash(8);
         System.out.println(minhaTabelaHash.print().equals("0: \n1: \n2: \n3: \n4: \n5: \n6: \n7: \n"));
         for (int key = 1; key < 25; key++) {

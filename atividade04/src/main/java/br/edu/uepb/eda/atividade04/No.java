@@ -1,4 +1,4 @@
-
+package br.edu.uepb.eda.atividade04;
 
 public class No {
     private Integer dado;

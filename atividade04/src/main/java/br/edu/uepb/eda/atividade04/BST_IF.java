@@ -1,7 +1,5 @@
+package br.edu.uepb.eda.atividade04;
 
-/*
- * Interface para implementação da classe "BST".
- */
 public interface BST_IF {
     public void insert(Integer element);
 
