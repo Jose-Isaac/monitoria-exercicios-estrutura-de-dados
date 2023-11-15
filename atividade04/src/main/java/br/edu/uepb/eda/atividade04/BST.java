@@ -108,10 +108,10 @@ public class BST implements BST_IF{
     public boolean isComplete() {
         int index = 0;
         int contador = contaux(this);
-        return isComplete(this, index, contador);
+        return isCompleteAux(this, index, contador);
     }
 
-    private boolean isComplete(BST bst, int index, int count) {
+    private boolean isCompleteAux(BST bst, int index, int count) {
         if (bst == null) {
             return true;
         }
