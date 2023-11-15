@@ -43,15 +43,7 @@ public class TabelaHash implements TabelaHash_IF{
         	 throw new Exception("Elemento não encontrado na tabela, está vazia");
      
         } 
-
-		TabelaHash aux = tabela[methash(element)];
-
-		while (aux != null) {
-            if (aux.data.equals(element)) {
-                return element; 
-            }
-            atual = atual.prox;
-        }
+		return tabela[methash(element)].search(element);
     }
     @Override
     public String print() {
