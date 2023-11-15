@@ -138,4 +138,8 @@ public class BST implements BST_IF {
 		}
 		return vector;
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> e2493261838e59ffac58113657e335a5d5dbe6b4
