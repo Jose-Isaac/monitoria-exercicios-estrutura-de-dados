@@ -1,4 +1,4 @@
-package br.edu.uepb.eda.atividade04;
+package atividade04;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -108,27 +108,42 @@ public class BST implements BST_IF {
 	
 	@Override
 	public boolean isComplete() {
-		int numberNodes = countNodes(this);
-		return isComplete(this,0,numberNodes);
+		return isCompleteRecursive(this, 0, heightMin(this));
 	}
 
-	private boolean isComplete(BST bst, int indexNode, int numberNodes) {
-		if(bst == null) {
+	private int heightMin(BST bst) {
+		if (bst == null) {
+			return 0;
+		} else {
+			int leftHeight = heightMin(this.left);
+			int rightHeight = heightMin(this.right);
+
+			if (leftHeight < rightHeight) {
+				return leftHeight + 1;
+			} else {
+				return rightHeight + 1;
+			}
+		}
+	}
+
+	private boolean isCompleteRecursive(BST bst, int indexNode, int heightMin) {
+		if (bst == null && indexNode == 0) {
+			return false;
+		}
+
+		if (bst == null) {
 			return true;
 		}
 		
-		if(indexNode>=numberNodes) {
+		if (indexNode == (heightMin - 1)) {
+			return bst.left == null && bst.right == null;
+		}
+			
+		else if (indexNode > (heightMin - 1)) {
 			return false;
 		}
-		
-		return isComplete(bst.left, 2*indexNode+1 ,numberNodes) && isComplete(bst.right, 2*indexNode+1 ,numberNodes);
-	}
-
-	private int countNodes(BST bst) {
-		if(bst == null) {
-			return 0;
-		}
-		return 1 + countNodes(bst.left) + countNodes(bst.right);
+			
+		return isCompleteRecursive(bst.left, indexNode + 1, heightMin) && isCompleteRecursive(bst.right, indexNode + 1, heightMin);
 	}
 	
 	private int[] byArrayListToVector(ArrayList<Integer> list) {
@@ -138,8 +153,4 @@ public class BST implements BST_IF {
 		}
 		return vector;
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 8e2c7bb7a2dcdca6402fb569646e37e99810ca79
