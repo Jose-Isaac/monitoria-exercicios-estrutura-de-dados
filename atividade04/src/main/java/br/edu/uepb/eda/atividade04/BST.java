@@ -46,7 +46,7 @@ public class BST implements BST_IF{
 	@Override
 	public Integer search(Integer element) throws Exception {
 		if(isEmpty()) {
-			return null;
+			throw new Exception("BST vazia!");
 		}else {
 			if(data.equals(element)) {
 				return element;
@@ -56,7 +56,7 @@ public class BST implements BST_IF{
 				return direita.search(element);
 			}
 		}
-		return null;
+		throw new Exception("A BST não está vazia e o elemento não foi encontrado nela!");
 	}
 
 	@Override
