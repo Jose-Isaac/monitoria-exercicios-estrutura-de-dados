@@ -1,11 +1,10 @@
 import org.w3c.dom.Text;
-
 import java.time.format.TextStyle;
 import java.util.Locale;
 import java.util.Scanner;
 import java.time.Month;
 public class Projeto {
-
+    public static Scanner leitor = new Scanner(System.in);
     public static void main(String[] args) throws Exception{
         int receita = 0,custo = 0,lucro =0,answer =0;
         Bts historico = new Bts();
@@ -13,6 +12,7 @@ public class Projeto {
         Scanner leitor = new Scanner(System.in);
         String message="";
         int i=0;
+        //Esse valor será único apenas para divisão. Ou seja, lucro sempre será diferente da meta.
         System.out.println("Qual sua meta? (R$)");
         int meta = Integer.parseInt(leitor.next());
         historico.insert(meta);
@@ -36,7 +36,7 @@ public class Projeto {
                         %s
                         %s
                         
-                        """,meses[i].getDisplayName(TextStyle.FULL, Locale.of("pt")).toUpperCase(), receita, custo, message,historico.isEmpty()?"":"4 - Remover mês (escolher)");
+                        """,meses[i].getDisplayName(TextStyle.FULL, Locale.of("pt")).toUpperCase(), receita, custo, message,historico.size()==1?"":"4 - Remover mês (escolher)");
                 answer = Integer.parseInt(leitor.next());
                 switch (answer){
                     case 0:
@@ -67,17 +67,25 @@ public class Projeto {
                             System.out.println("Opção inválida");
                             break;
                         }
-                        System.out.println("Digite o valor do mês que deseja excluir.");
+                        //Considerando não haver valores iguais, cada mês terá seu lucro único.
+                        System.out.println("Digite o valor referente do mês que deseja excluir.");
                         System.out.println(historico);
-
+                        System.out.print("Digite o valor: ");
+                        int valor = Integer.parseInt(leitor.next());
+                        String mes = historico.search_mes(valor);
+                        historico.remove(valor);
+                        System.out.println("Digitite o novo lucro para o mês de "+ mes + ": ");
+                        historico.insert(Integer.parseInt(leitor.next()),mes);
                         break;
                     default:
                         System.out.println("Opção inválida");
                 }
                 System.out.println();
             }while(answer!=0 && i!=13);
+            if(!historico.toString().equals("")){
         System.out.println("historico.mesesAcimaDaMeta() : " +historico.mesesAcimaDaMeta());
         System.out.println("historico.mesesAbaixoDaMeta() : " +historico.mesesAbaixoDaMeta());
+    }
     }
 
 }

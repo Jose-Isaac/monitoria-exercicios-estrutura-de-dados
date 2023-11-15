@@ -76,6 +76,8 @@ public class Bts implements BST_IF {
         }
     }
 
+    //Método remove da árvore binária de busca.
+
     public int remove(int element) throws Exception{
         if(this.data==null){
             throw new Exception("");
@@ -136,7 +138,6 @@ public class Bts implements BST_IF {
 
             }
         }
-
         return element;
     }
 
@@ -166,6 +167,34 @@ public class Bts implements BST_IF {
         }
 
     }
+    //Retorna o mês do elemento.
+    public String search_mes(int element) throws Exception {
+        if (this.data == null) throw new Exception("Elemento não encontrado!");
+        if (this.data.equals(element)) {
+            return mes;
+        }
+        else if((int)this.data < element){
+            if (this.filho_dir == null)
+                throw new Exception("Elemento não encontrado!");
+
+            if(this.filho_dir.isEmpty()){
+                throw new Exception("Elemento não encontrado!");
+            }
+            return this.filho_dir.search_mes(element);
+        }
+        else{
+            if (this.filho_esq == null)
+                throw new Exception("Elemento não encontrado!");
+
+            if(this.filho_esq.isEmpty()){
+                throw new Exception("Elemento não encontrado!");
+            }
+            return this.filho_esq.search_mes(element);
+        }
+
+    }
+    //Meses que a empresa não esteve na meta.
+
     public String mesesAbaixoDaMeta() {
         Map<String, Integer> map = new HashMap<>();
         preOrderRecursive(this.filho_esq, map);
@@ -176,6 +205,7 @@ public class Bts implements BST_IF {
         return sb.toString();
     }
 
+    //Meses que a empresa superou a meta.
     public String mesesAcimaDaMeta() {
         Map<String, Integer> map = new HashMap<>();
         preOrderRecursive(this.filho_dir, map);
@@ -260,7 +290,6 @@ public class Bts implements BST_IF {
 
     @Override
     public String toString() {
-
         return mesesAbaixoDaMeta() + " " + mesesAcimaDaMeta();
     }
 }
