@@ -5,7 +5,7 @@ public class BrincandoComEstruturas {
     public static void main(String[] args) throws Exception {
 
         System.out.println("Brincando com BST...");
-        BST_IF minhaArvore = new BST(); // Altere para a implementação concreta MinhaBST
+        BST_IF minhaArvore = new MinhaBST(); // Altere para a implementação concreta MinhaBST
         minhaArvore.insert(8);
         System.out.println(minhaArvore.isComplete());
         System.out.println(Arrays.toString(minhaArvore.preOrder()).equals("[8]"));
@@ -40,7 +40,7 @@ public class BrincandoComEstruturas {
             bst.insert(num);
         }
 
-        Integer maiorMenorValor = encontrarMaiorMenorValor(bst, valorReferencia);
+        Integer maiorMenorValor = encontrarMaiorMenorValor(Bst bst,int valorReferencia);
 
         if (maiorMenorValor != null) {
             System.out.println("O maior número menor que " + valorReferencia + " na lista é: " + maiorMenorValor);
