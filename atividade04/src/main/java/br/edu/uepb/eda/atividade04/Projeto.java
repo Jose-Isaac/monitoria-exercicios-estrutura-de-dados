@@ -64,7 +64,7 @@ public class Projeto {
             return array;
         }
 
-        private static void toArray(Game[] array, GameLinkedList GameLinkedList, int i) {
+        private void toArray(Game[] array, GameLinkedList GameLinkedList, int i) {
             if (!GameLinkedList.isEmpty()) {
                 array[i] = GameLinkedList.data;
                 toArray(array, GameLinkedList.next, i + 1);
