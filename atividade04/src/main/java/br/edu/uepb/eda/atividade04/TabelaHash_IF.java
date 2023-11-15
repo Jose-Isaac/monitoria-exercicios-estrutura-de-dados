@@ -7,7 +7,7 @@ package br.edu.uepb.eda.atividade04;
 public interface TabelaHash_IF {
 	public void insert(Integer element);
 	public void remove(Integer element) throws Exception; //lan�ar exce��o caso o element n�o esteja na tabela
-	public Integer search(Integer element) throws Exception; //lan�ar exce��o caso o element n�o esteja na tabela
+	public int search(Integer element) throws Exception; //lan�ar exce��o caso o element n�o esteja na tabela
 	public String print();
 	
 	/*

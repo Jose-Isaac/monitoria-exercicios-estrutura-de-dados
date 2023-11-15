@@ -4,132 +4,148 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BST implements BST_IF {
-    private Integer data;
-    private BST direita, esquerda;
+	protected Integer data;
+	protected BST left;
+	protected BST right;
+	protected BST parent;
+	
+	public BST() {
+		this.data = null;
+		this.left = null;
+		this.right = null;
+		this.parent = null;
+	}
+	
+	public boolean isEmpty() {
+		return this.data==null;
+	}
 
-    public BST() {
-        this.data = null;
-        this.esquerda = this.direita = null;
-    }
+	@Override
+	public void insert(Integer element) {
+		if (isEmpty()) {
+			this.data = element;
+		} else {
+			if(element < this.data) {
+				if (this.left == null) {
+					this.left = new BST();
+					this.left.insert(element);
+					this.left.parent = this;
+				} else {
+					this.left.insert(element);
+				}
+			} else if (element > this.data) {
+				if (this.right == null) {
+					this.right = new BST();
+					this.right.insert(element);
+					this.right.parent = this;
+				} else {
+					this.right.insert(element);
+				}
+			}
+		}
+	}
 
-    @Override
-    public void insert(Integer element) {
-        if (data == null) {
-            data = element;
-        } else {
-            if (element < data) {
-                if (esquerda == null) {
-                    esquerda = new BST();
-                }
-                esquerda.insert(element);
-            } else if (element > data) {
-                if (direita == null) {
-                    direita = new BST();
-                }
-                direita.insert(element);
-            }
-        }
-    }
+	@Override
+	public Integer search(Integer element) throws Exception {
+		if (isEmpty()) {
+			throw new Exception("BST vazia!");
+		} else {
+			if (this.data == element) {
+				return element;
+			} else if (element < this.data && this.left != null) {
+				return this.left.search(element);
+			} else if (element > this.data && this.right != null) {
+				return this.right.search(element);
+			}
+		}
+		throw new Exception("A BST não está vazia e o elemento não foi encontrado nela!");
+	}
+	
+	@Override
+	public int[] preOrder() {
+		ArrayList<Integer> result = new ArrayList<>();
+		preOrderRoute(this, result);
+		return byArrayListToVector(result);
+	}
 
-    @Override
-    public Integer search(Integer element) throws Exception {
-        if (data == null) {
-            throw new Exception("Não encontrado");
-        }
-        if (element.equals(data)) {
-            return data;
-        } else if (element < data && esquerda != null) {
-            return esquerda.search(element);
-        } else if (element > data && direita != null) {
-            return direita.search(element);
-        }
-        throw new Exception("Ñão encontrado");
-    }
+	private void preOrderRoute(BST bst, ArrayList<Integer> result) {
+		if(bst != null) {
+			result.add(bst.data);
+			preOrderRoute(bst.left,result);
+			preOrderRoute(bst.right,result);
+		}
+	}
 
-    @Override
-    public Integer[] preOrder() {
-        List<Integer> resultado = new ArrayList<>();
-        preOrderRec(resultado);
-        return resultado.toArray(new Integer[0]);
-    }
+	@Override
+	public int[] order() {
+		ArrayList<Integer> result = new ArrayList<>();
+		orderRoute(this, result);
+		return byArrayListToVector(result);
+	}
+	
+	private void orderRoute(BST bst, ArrayList<Integer> result) {
+		if(bst != null) {
+			orderRoute(bst.left,result);
+			result.add(bst.data);
+			orderRoute(bst.right,result);
+		}
+	}
 
-    private void preOrderRec(List<Integer> resultado) {
-        if (data != null) {
-            resultado.add(data);
-            if (esquerda != null) {
-                esquerda.preOrderRec(resultado);
-            }
-            if (direita != null) {
-                direita.preOrderRec(resultado);
-            }
-        }
-    }
+	@Override
+	public int[] postOrder() {
+		ArrayList<Integer> result = new ArrayList<>();
+		postOrderRoute(this, result);
+		return byArrayListToVector(result);
+	}
+	
+	private void postOrderRoute(BST bst, ArrayList<Integer> result) {
+		if(bst != null) {
+			postOrderRoute(bst.left,result);
+			postOrderRoute(bst.right,result);
+			result.add(bst.data);
+		}
+	}
+	
+	@Override
+	public boolean isComplete() {
+		return isCompleteRecursive(this, 0, heightMin(this));
+	}
 
-    @Override
-    public Integer[] order() {
-        List<Integer> resultado = new ArrayList<>();
-        orderRec(resultado);
-        return resultado.toArray(new Integer[0]);
-    }
+	private int heightMin(BST bst) {
+		if (bst == null) {
+			return 0;
+		} else {
+			int leftHeight = heightMin(bst.left);
+			int rightHeight = heightMin(bst.right);
 
-    private void orderRec(List<Integer> resultado) {
-        if (esquerda != null) {
-            esquerda.orderRec(resultado);
-        }
-        if (data != null) {
-            resultado.add(data);
-        }
-        if (direita != null) {
-            direita.orderRec(resultado);
-        }
-    }
+			if (leftHeight < rightHeight)
+				return leftHeight + 1;
+			else
+				return rightHeight + 1;
+		}
+	}
 
-    @Override
-    public Integer[] postOrder() {
-        List<Integer> resultado = new ArrayList<>();
-        postOrderRec(resultado);
-        return resultado.toArray(new Integer[0]);
-    }
+	private boolean isCompleteRecursive(BST bst, int index, int heightMin) {
+		if (bst == null && index == 0)
+			return false;
 
-    private void postOrderRec(List<Integer> resultado) {
-        if (esquerda != null) {
-            esquerda.postOrderRec(resultado);
-        }
-        if (direita != null) {
-            direita.postOrderRec(resultado);
-        }
-        if (data != null) {
-            resultado.add(data);
-        }
-    }
+		if (bst == null)
+			return true;
 
-    @Override
-    public boolean isComplete() {
-        int index = 0;
-        int contador = countNodes();
-        return isCompleteRec(index, contador);
-    }
+		if (index == (heightMin - 1))
+			return bst.left == null && bst.right == null;
 
-    private boolean isCompleteRec(int index, int contador) {
-        if (index >= contador) {
-            return false;
-        }
-        boolean leftComplete = (esquerda == null) || esquerda.isCompleteRec(2 * index + 1, contador);
-        boolean rightComplete = (direita == null) || direita.isCompleteRec(2 * index + 2, contador);
-        return leftComplete && rightComplete;
-    }
+		else if (index > (heightMin - 1))
+			return false;
 
-    private int countNodes() {
-        int contador = 0;
-        if (data != null) {
-            contador = 1;
-            if (esquerda != null) {
-                contador += esquerda.countNodes();
-            }
-            if (direita != null) {
-                contador += direita.countNodes();
-            }
-        }
-        return contador;
-    }
+		return isCompleteRecursive(bst.left, index + 1, heightMin) && isCompleteRecursive(bst.right, index + 1, heightMin);
+	}
+	
+	private int[] byArrayListToVector(ArrayList<Integer> list) {
+		int vector[] = new int[list.size()];
+		for (int i = 0; i < list.size(); i++) {
+			vector[i] = list.get(i);
+		}
+		return vector;
+	}
 }
