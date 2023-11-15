@@ -17,10 +17,6 @@ public class BST implements BST_IF{
 		this.pai=null;
 	}
 	
-	BST (Integer data){
-		this.data = data;
-	}
-	
 	public boolean isEmpty() {
 		return this.data == null;
 	}
