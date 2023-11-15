@@ -107,7 +107,7 @@ public class BST implements BST_IF {
 
     @Override
     public boolean isComplete() {
-        return isCompleteRec(this, 0, countNodes(this));
+        return Math.pow(2,getHeightRecursive(this)) - 1 == countNodes(this);
     }
 
     private int countNodes(BST node) {
@@ -118,15 +118,14 @@ public class BST implements BST_IF {
         }
     }
 
-    private boolean isCompleteRec(BST node, int index, int totalNodes) {
+    private int getHeightRecursive(BST node) {
         if (node.isNill()) {
-            return true;
+            return 0;
+        } else {
+            int leftHeight = getHeightRecursive(node.left);
+            int rightHeight = getHeightRecursive(node.right);
+            return Math.max(leftHeight, rightHeight) + 1;
         }
-        if (index >= totalNodes) {
-            return false;
-        }
-        return isCompleteRec(node.left, 2 * index + 1, totalNodes)
-                && isCompleteRec(node.right, 2 * index + 2, totalNodes);
     }
     
 }
