@@ -1,4 +1,4 @@
-package atividade04;
+package br.edu.uepb.eda.atividade04;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -138,8 +138,4 @@ public class BST implements BST_IF {
 		}
 		return vector;
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> e2493261838e59ffac58113657e335a5d5dbe6b4
