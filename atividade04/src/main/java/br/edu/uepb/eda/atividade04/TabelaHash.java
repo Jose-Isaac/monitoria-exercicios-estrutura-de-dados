@@ -14,9 +14,7 @@ public class TabelaHash implements TabelaHash_IF {
 
         for (int i = 0; i < size; i++) {
             table[i] = new ArrayList<>();
-
         }
-
     }
 
     @Override
@@ -44,7 +42,6 @@ public class TabelaHash implements TabelaHash_IF {
             throw new Exception("Valor não encontrado!");
 
         }
-
     }
 
     @Override
@@ -63,4 +60,5 @@ public class TabelaHash implements TabelaHash_IF {
         }
         return builder.toString();
     }
+    
 }
