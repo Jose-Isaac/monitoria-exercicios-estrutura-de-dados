@@ -113,6 +113,9 @@ public class BST implements BST_IF {
         if (bst == null)
             return true;
 
+        if (bst.parent == null && bst.data == null)
+            return false;
+
         if (i >= height)
             return false;
 
