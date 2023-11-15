@@ -4,7 +4,7 @@ import br.edu.uepb.eda.atividade04.*;
 
 import java.util.Arrays;
 
-public class Main {
+public class BrincandoComEstruturas {
 
 	public static void main(String[] args) throws Exception {
 
