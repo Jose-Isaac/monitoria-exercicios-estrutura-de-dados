@@ -106,9 +106,8 @@ public class BST implements BST_IF{
 
     @Override
     public boolean isComplete() {
-        int index = 0;
         int contador = contaux(this);
-        return isCompleteAux(this, index, contador);
+        return isCompleteAux(this, 0, contador);
     }
 
     private boolean isCompleteAux(BST bst, int index, int count) {
