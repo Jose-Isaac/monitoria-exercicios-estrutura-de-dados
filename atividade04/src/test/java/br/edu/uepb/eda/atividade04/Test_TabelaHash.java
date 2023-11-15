@@ -20,9 +20,9 @@ public class Test_TabelaHash {
         t.insert(87);
         t.insert(10);
 
-        assertEquals(17, t.search(17));
-        assertEquals(10, t.search(10));
-        assertEquals(87, t.search(87));
+        assertEquals(Integer.valueOf(17), t.search(17));
+        assertEquals(Integer.valueOf(10), t.search(10));
+        assertEquals(Integer.valueOf(87), t.search(87));
     }
 
     @Test
@@ -32,8 +32,8 @@ public class Test_TabelaHash {
         t.insert(10);
 
         t.remove(87);
-        assertEquals(17, t.search(17));
-        assertEquals(10, t.search(10));
+        assertEquals(Integer.valueOf(17), t.search(17));
+        assertEquals(Integer.valueOf(10), t.search(10));
 
     }
 

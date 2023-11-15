@@ -33,7 +33,7 @@ public class Test_BST {
 		b.insert(3);
 		b.insert(7);
 
-		int[] expectedResult = { 5, 3, 7 };
+		Integer[] expectedResult = { 5, 3, 7 };
 		assertArrayEquals(expectedResult, b.preOrder());
 	}
 
@@ -43,7 +43,7 @@ public class Test_BST {
 		b.insert(3);
 		b.insert(7);
 
-		int[] expectedResult = { 3, 5, 7 };
+		Integer[] expectedResult = { 3, 5, 7 };
 		assertArrayEquals(expectedResult, b.order());
 	}
 
@@ -53,7 +53,7 @@ public class Test_BST {
 		b.insert(3);
 		b.insert(7);
 
-		int[] expectedResult = { 3, 7, 5 };
+		Integer[] expectedResult = { 3, 7, 5 };
 		assertArrayEquals(expectedResult, b.postOrder());
 	}
 
