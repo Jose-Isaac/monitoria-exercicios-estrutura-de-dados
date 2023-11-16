@@ -7,7 +7,7 @@ public class BST implements BST_IF {
     public BST esq;
     public BST dir;
     public int cont = 0;
-    BST (){}
+    public BST (){}
     BST (Integer data){
         this.raiz = data;
     }
@@ -56,11 +56,11 @@ public class BST implements BST_IF {
     }
 
     @Override
-    public int[] preOrder() {
+    public Integer[] preOrder() {
         ListaEncadeada preOrder = new ListaEncadeada();
         preAux(preOrder,this);
         Integer integerArr[] = preOrder.toArray();
-        int intArr[] = new int[cont];
+        Integer intArr[] = new Integer[cont];
         for (int i=0;cont>i;i++){
             intArr[i] = integerArr[cont-1-i];
         }
@@ -74,11 +74,11 @@ public class BST implements BST_IF {
         }
     }
     @Override
-    public int[] order() {
+    public Integer[] order() {
         ListaEncadeada order = new ListaEncadeada();
         orderAux(order,this);
         Integer integerArr[] = order.toArray();
-        int intArr[] = new int[cont];
+        Integer intArr[] = new Integer[cont];
         for (int i=0;cont>i;i++){
             intArr[i] = integerArr[cont-1-i];
         }
@@ -92,11 +92,11 @@ public class BST implements BST_IF {
         }
     }
     @Override
-    public int[] postOrder() {
+    public Integer[] postOrder() {
         ListaEncadeada posOrder = new ListaEncadeada();
         posAux(posOrder,this);
         Integer integerArr[] = posOrder.toArray();
-        int intArr[] = new int[cont];
+        Integer intArr[] = new Integer[cont];
         for (int i=0;cont>i;i++){
             intArr[i] = integerArr[cont-1-i];
         }

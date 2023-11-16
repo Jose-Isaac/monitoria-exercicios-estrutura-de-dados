@@ -1,8 +1,8 @@
-package br.edu.uepb.eda;
+package br.edu.uepb.eda.atividade04;
 
 import java.util.Scanner;
 
-public class Problematica {
+public class Projeto {
     public static void main(String[] args) throws Exception{
         Scanner scan = new Scanner(System.in);
         BSTContato listaTelefonica = new BSTContato();

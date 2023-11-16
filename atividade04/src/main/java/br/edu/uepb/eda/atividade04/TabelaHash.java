@@ -4,7 +4,7 @@ public class TabelaHash implements TabelaHash_IF {
     public ListaEncadeada[] tabela;
     public int tamanho;
     TabelaHash(){}
-    TabelaHash(int num){
+    public TabelaHash(Integer num){
         this.tamanho = num;
         this.tabela = new ListaEncadeada[tamanho];
         for (int i=0;i<tamanho;i++){
@@ -20,7 +20,7 @@ public class TabelaHash implements TabelaHash_IF {
         tabela[element%tamanho].remove(element);
     }
     @Override
-    public int search(Integer element) throws Exception {
+    public Integer search(Integer element) throws Exception {
         return tabela[element%tamanho].search(element);
     }
     @Override
