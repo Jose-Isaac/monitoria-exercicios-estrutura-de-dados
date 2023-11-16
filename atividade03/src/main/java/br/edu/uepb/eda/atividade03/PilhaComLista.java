@@ -2,7 +2,7 @@ package br.edu.uepb.eda.atividade03;
 
 public class PilhaComLista implements Pilha_IF {
 
-    public int limite = 10;
+    public final int LIMITE = 10;
     private ListaEncadeada lista;
 
     public PilhaComLista() {
