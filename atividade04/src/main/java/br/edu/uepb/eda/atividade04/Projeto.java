@@ -28,9 +28,6 @@ public class Projeto {
                     buscarAluno(bstAlunos, scanner);
                     break;
                 case 3:
-                    removerAluno(bstAlunos, scanner);
-                    break;
-                case 4:
                     exibirAlunos(bstAlunos);
                     break;
             }
