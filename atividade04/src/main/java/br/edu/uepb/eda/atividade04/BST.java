@@ -127,7 +127,7 @@ public class BST implements BST_IF {
             return true;
         }
 
-        if (index >= size) {
+        if (index >= size-1) {
             return false;
         }
 
