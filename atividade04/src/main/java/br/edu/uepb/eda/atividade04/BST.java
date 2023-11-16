@@ -106,27 +106,35 @@ public class BST implements BST_IF {
 
     @Override
     public boolean isComplete() {
-        return isComplete(this, 0, getHeight(this));
+        return isComplete(this, 0, height(this));
     }
 
-    private static boolean isComplete(BST bst, int i, int height) {
+    private int height(BST bst) {
+        if (bst == null) {
+            return 0;
+
+        } else {
+            int leftHeight = height(bst.left);
+            int rightHeight = height(bst.right);
+
+            return leftHeight < rightHeight ? leftHeight + 1 : rightHeight + 1;
+        }
+    }
+
+    private boolean isComplete(BST bst, int i, int height) {
+        if (bst == null && i == 0)
+            return false;
+
         if (bst == null)
             return true;
 
-        if (bst.parent == null && bst.data == null)
+        if (i == (height - 1))
+            return bst.left == null && bst.right == null;
+
+        else if (i > (height - 1))
             return false;
 
-        if (i >= height)
-            return false;
-
-        return (isComplete(bst.left, 2 * i + 1, height)
-                && isComplete(bst.right, 2 * i + 2, height));
-    }
-
-    private static int getHeight(BST bst) {
-        if (bst == null)
-            return (0);
-        return (1 + getHeight(bst.left) + getHeight(bst.right));
+        return isComplete(bst.left, i + 1, height) && isComplete(bst.right, i + 1, height);
     }
 
     private static Integer[] arrayListToIntArray(ArrayList<Integer> arrayList) {
