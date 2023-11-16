@@ -46,7 +46,7 @@ public class TabelaHash implements TabelaHash_IF {
 	@Override
 	public String print() {
 		
-		String result = "\n";
+		String result = "";
 		
 		int i;
 		for(i = 0; i < this.tamanho; i++) {
