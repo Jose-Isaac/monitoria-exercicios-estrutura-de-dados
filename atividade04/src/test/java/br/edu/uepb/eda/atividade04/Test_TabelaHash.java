@@ -81,7 +81,7 @@ public class Test_TabelaHash {
 		tabelaHash.insert(5);
 		tabelaHash.insert(7);
 		
-		assertEquals("0: 7, \n1: , \n2: , \n3: , \n4: 4, \n5: 5, \n6: , \n", tabelaHash.print());
+		assertEquals("0: 7\n1: \n2: \n3: \n4: 4\n5: 5\n6: \n", tabelaHash.print());
 		
 	}
 

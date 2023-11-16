@@ -56,18 +56,22 @@ public class TabelaHash implements TabelaHash_IF {
 			int[] linha;
 			if(this.tabela[i].valor == null) {
 				linha = new int[]{-1};
-				result += " " + ",";
+				result += " ";
 			}else {
 				linha = this.tabela[i].toArray();
 				int j;
 				for(j = 0; j < linha.length; j++) {
 					
-					result += " " + linha[j] + ",";
+					result += " " + linha[j];
+					
+					if(j+1 != linha.length) {
+						result += ",";
+					}
 
 				}
 			}
 			
-			result += " \n";
+			result += "\n";
 			
 		}
 		

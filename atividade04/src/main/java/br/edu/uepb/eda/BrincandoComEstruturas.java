@@ -80,9 +80,8 @@ public class BrincandoComEstruturas {
 		// Printa como está a tabela hash
 		// System.out.println(minhaTabelaHash.print());
 
-		System.out.println(
-				minhaTabelaHash.print().equals("0: 21, 14, 7, \n1: 22, 15, 8, \n2: 23, 16, 2, \n3: 17, 10, 3,"
-						+ " \n4: 25, 11, 4, \n5: 19, 12, 5, \n6: 20, 13, 6, \n"));
+		System.out.println(minhaTabelaHash.print().equals("0: 21, 14, 7\n1: 22, 15, 8\n2: 23, 16, 2\n3: 17, 10, 3"
+				+ "\n4: 25, 11, 4\n5: 19, 12, 5\n6: 20, 13, 6\n"));
 
 	}
 
