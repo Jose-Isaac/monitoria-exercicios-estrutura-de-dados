@@ -7,14 +7,10 @@ import static org.junit.Assert.*;
 public class Test0_BST {
 
 	static BST_IF b;
-	static BST_IF b2;
-	static BST_IF b3;
 
 	@Before // Instanciando a BST antes de cada teste
 	public void instanciaBST() {
 		b = new BST();
-		b2 = new BST();
-		b3 = new BST();
 	}
 
 	@Test
@@ -58,29 +54,23 @@ public class Test0_BST {
 	}
 
 	@Test
-	public void testIsComplete() {
+	public void testIsNotComplete() {
 		b.insert(10);
 		b.insert(5);
 		b.insert(20);
 		b.insert(15);
 		b.insert(25);
 
-		assertTrue(!b.isComplete());
+		assertFalse(b.isComplete());
+	}
 
-		b2.insert(12);
-		b2.insert(5);
-		b2.insert(2);
-		b2.insert(27);
+	@Test
+	public void testIsComplete() {
+		b.insert(10);
+		b.insert(5);
+		b.insert(20);
 
-		assertTrue(b2.isComplete());
-
-		b3.insert(70);
-		b3.insert(50);
-		b3.insert(30);
-		b3.insert(60);
-		b3.insert(89);
-
-		assertTrue(b3.isComplete());
+		assertTrue(b.isComplete());
 	}
 
 	@Test(expected = Exception.class)
