@@ -41,7 +41,7 @@ public class BST implements BST_IF {
     @Override
     public Integer search(Integer element) throws Exception {
         if(isEmpty()) {
-            return null;
+            throw new Exception("Árvore vazia!");
         }else {
             if(raiz.equals(element)) {
                 return element;
@@ -50,7 +50,7 @@ public class BST implements BST_IF {
             }else if(element > raiz && dir != null) {
                 return dir.search(element);
             }else {
-                return null;
+                throw new Exception("Não encontrado!");
             }
         }
     }

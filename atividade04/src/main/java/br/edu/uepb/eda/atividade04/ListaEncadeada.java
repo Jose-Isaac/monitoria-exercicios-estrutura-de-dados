@@ -27,7 +27,7 @@ public class ListaEncadeada implements ListaEncadeada_IF {
     @Override
     public Integer search(Integer element) throws Exception {
         if(isEmpty()){
-            return 0;
+            throw new Exception("Não encontrado!");
         }else{
             if(valor.equals(element)){
                 return valor;
