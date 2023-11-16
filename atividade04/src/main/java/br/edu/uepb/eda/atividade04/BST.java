@@ -118,8 +118,8 @@ public class BST implements BST_IF {
         if (bst == null) {
             return 0;
         } else {
-            int esquerdacont = contaux(bst.esquerda);
-            int direitacont = contaux(bst.direita);
+            int esquerdacont = contaux(bst.esq);
+            int direitacont = contaux(bst.dir);
 
             if (esquerdacont < direitacont)
                 return esquerdacont + 1;
@@ -136,11 +136,11 @@ public class BST implements BST_IF {
             return true;
 
         if (index == (count - 1))
-            return bst.esquerda == null && bst.direita == null;
+            return bst.esq == null && bst.dir == null;
 
         else if (index > (count - 1))
             return false;
 
-        return isCompleteAux(bst.esquerda, index + 1, count) && isCompleteAux(bst.direita, index + 1, count);
+        return isCompleteAux(bst.esq, index + 1, count) && isCompleteAux(bst.dir, index + 1, count);
     }
 }
