@@ -6,9 +6,6 @@ public class Projeto_BST {
 
     public Projeto_BST () { this.root = null; }
 
-    public boolean isNIL() {
-        return (this.root == null);}
-
     public void insert(String element) {
         this.root = insert_recursive(this.root, element);
     }

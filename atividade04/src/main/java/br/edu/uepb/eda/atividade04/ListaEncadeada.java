@@ -1,5 +1,6 @@
 package br.edu.uepb.eda.atividade04;
 
+// como nao realizei o envio da atividade 03, estou enviando a lista encadeada também
 public class ListaEncadeada implements ListaEncadeada_IF {
 
     protected Integer data;
