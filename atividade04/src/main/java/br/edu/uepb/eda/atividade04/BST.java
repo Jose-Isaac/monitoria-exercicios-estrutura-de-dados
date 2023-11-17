@@ -118,24 +118,28 @@ public class BST implements BST_IF {
         return index;
     }
 
+  
+    
     public boolean isComplete() {
-    return isCompleteRec(this.raiz);
-}
-
-private boolean isCompleteRec(No raiz) {
-    if (raiz == null) {
-        return true;
+        return isCompleteRec(this.raiz);
     }
 
-    if (raiz.getEsq() != null && raiz.getDir() != null) {
-    
-        return isCompleteRec(raiz.getEsq()) && isCompleteRec(raiz.getDir());
-    } else if (raiz.getEsq() == null && raiz.getDir() == null) {
-    
-        return true;
-    } else {
-    
-        return false;
-    }
+    private boolean isCompleteRec(No raiz) {
+        if (raiz == null) {
+            return true;
+        }
+
+        
+        if (raiz.getEsq() != null && raiz.getDir() != null) {
+            
+            return isCompleteRec(raiz.getEsq()) && isCompleteRec(raiz.getDir());
+        } else if (raiz.getEsq() == null && raiz.getDir() == null) {
+           
+            return true;
+        } else {
+            
+            return false;
+        }
+    }
 }
-}
+
